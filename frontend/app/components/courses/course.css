@@ -1,0 +1,31 @@
+.course {
+  margin: 0px 10px;
+  padding: 0px;
+  padding-bottom: 6px;
+  margin: auto;
+}
+
+.couse-offer {
+}
+
+.course-image-container {
+}
+
+.course-title {
+  cursor: pointer;
+}
+
+.course-image {
+  border-radius: 10px 10px 0px 0px;
+}
+.course-text {
+  padding: 15px 15px 0px 15px !important;
+}
+
+.course-price-information {
+  padding: 30px 15px 15px 15px !important;
+}
+
+.course-description {
+  font-size: 14px;
+}

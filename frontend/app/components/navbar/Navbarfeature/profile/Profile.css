@@ -1,0 +1,37 @@
+.Basket-open{
+    z-index: 1000 !important;
+    
+}
+.basket-icon-navbar{
+    z-index: 9999 !important;
+}
+
+.Basket-open ol {
+    padding: 20px;
+    list-style: none;
+    padding-bottom: 0;
+}
+.Basket-open ol li{
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.Basket-open ol li:hover{
+    background-color: rgba(83, 224, 88, .6); 
+}
+.Basket-open ol .logout-li-profile:hover{
+    background-color: rgba(211, 46, 46, 1);
+    color: white;
+}
+
+.Basket-open ol li span {
+    margin-right: 10px; 
+    font-size: 20px; 
+
+}
+
+.Basket-open ol li i{
+    font-size: 19px;
+}

@@ -1,0 +1,10 @@
+.navbar-and-search-icons {
+    font-size: 19px;
+}
+
+.navbar-and-search-container {
+    background-image: url('/static-images/laptop.webp');
+    background-size: cover;
+    background-position: 50%; 
+    background-repeat: no-repeat;
+}

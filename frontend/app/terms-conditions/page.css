@@ -1,0 +1,40 @@
+.terms-content {
+    direction: rtl;
+}
+
+.terms-title {
+    margin-top: 50px; 
+    margin-bottom: 50px;
+    font-weight: bold;
+    font-size: 40px;
+    
+}
+
+.terms-text {
+    opacity: 65%;
+    line-height: 35px;
+    margin-bottom: 20px;
+    font-size: 19px;
+}
+
+.terms-list-container {
+    opacity: 65%;
+}
+.terms-list { 
+    margin-top: 20px;
+}
+.terns-list::marker {
+
+}
+
+.terms-list::marker {
+    color: #3b82f680; 
+    font-size: 20px;
+    
+}
+
+
+.warning-for-sabzlearn {
+    margin: 40px 0px;
+    color: #ff6600;
+}

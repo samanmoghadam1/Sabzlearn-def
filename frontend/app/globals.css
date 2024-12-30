@@ -1,0 +1,30 @@
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+
+:root {
+  /* rgb(34 197 94) */
+  --sabzlearn-color: rgb(30 179 91) ; 
+  --sabzlearn-color-darker: rgb(38, 145, 81); 
+  
+}
+
+body{
+  background-color: rgb(243 243 243);
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+

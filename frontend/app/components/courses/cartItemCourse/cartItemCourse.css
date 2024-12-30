@@ -1,0 +1,44 @@
+/* cartItemCourse.css */
+
+.cart-item-course-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 17px;
+    direction: rtl;
+  }
+  
+  .cart-item-course-image {
+    border-radius: 0.75rem;
+  }
+  
+  .cart-item-course-details {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: start;
+  }
+  
+  .cart-item-course-title {
+    font-size: 16px;
+    text-align: start;
+  }
+  
+  .cart-item-course-price {
+    margin-left: auto;
+    font-size: 1rem;
+    opacity: 0.75;
+  }
+  
+  .cart-item-course-trash {
+    font-size: 1rem;
+  }
+
+  .cart-item-course-trash {
+    color: rgba(156 163 175 );
+    transition: all 0.1s ease-in-out;
+  }
+  .cart-item-course-trash:hover {
+    color: rgb(214, 24, 24);
+  }
+  

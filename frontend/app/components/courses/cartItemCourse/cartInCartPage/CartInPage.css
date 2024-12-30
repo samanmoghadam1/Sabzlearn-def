@@ -1,0 +1,13 @@
+.x-container-for-cart {
+  top: 30px;
+  right: 95px;
+  width: 15px;
+  height: 15px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color .1s ease-in-out;
+}
+
+.x-container-for-cart:hover {
+    background-color: red !important;
+}

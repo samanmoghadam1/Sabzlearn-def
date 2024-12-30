@@ -1,0 +1,76 @@
+.offer {
+  margin: 12px;
+  margin-top: 45px;
+  margin-bottom: 50px;
+  background-color: rgb(220 38 38);
+  padding: 15px;
+  border-radius: 15px;
+}
+
+.right {
+  text-align: center;
+}
+
+.bell-icon {
+  color: rgb(229, 228, 228);
+  font-size: 30px;
+}
+
+.text {
+  font-size: 17px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.dont-lose-btn {
+  background-color: white;
+  color: rgb(220 38 38);
+  width: 40%;
+  font-size: 15px;
+  /* padding: 8px; */
+  height: 40px;
+  border: 0px;
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+  border-radius: 20px;
+}
+.dont-lose-btn .arrow-btn {
+  text-align: center;
+  font-size: 16px;
+}
+
+.dont-lose-btn .text-btn {
+  text-align: center;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.left {
+  margin-top: 20px;
+}
+.left .the-circles {
+  width: 70px;
+  height: 70px;
+  padding: 20px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.left .the-circles .circle-number {
+  margin: 0px;
+  padding: 0px;
+  font-weight: bold;
+}
+
+.left .the-circles .circle-text {
+  text-align: center;
+  display: block;
+  font-size: 12px;
+}
+
+.active-circle {
+  background-color: rgb(220 38 38) !important;
+  border: 1px solid white;
+  color: white;
+}

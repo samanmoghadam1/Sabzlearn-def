@@ -1,0 +1,30 @@
+.footer-icons-container {
+  color: rgb(212 212 212);
+  font-size: 30px;
+  align-items: center;
+}
+
+.footer-icons {
+  transition: all 0.3s;
+}
+
+.footer-icons:hover {
+  color: #226feb80;
+  cursor: pointer;
+}
+
+
+.about-sabzlearn-footer p {
+    line-height: 30px; 
+    text-align: justify;
+    color: rgb(95, 90, 90);
+}
+
+.footer-category ol li{
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+.footer-category ol li:hover{
+    cursor: pointer;
+}

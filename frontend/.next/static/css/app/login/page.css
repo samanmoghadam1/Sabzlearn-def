@@ -1,0 +1,35 @@
+/*!*****************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./app/login/style.css ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************/
+.login-main {
+    min-width: 370px;
+}
+
+.login-main p{
+    font-size: 16px;
+}
+.login-input-container{
+    background-color: rgb(243 244 246); 
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px;
+}
+.login-input-container i{
+    padding: 10px;
+}
+.login-input-container input{
+    background-color: rgb(243 244 246); 
+    outline: none;
+    padding: 10px;
+    width: 100%;    
+}
+
+.login-main button{
+    background-color: rgb(87, 214, 134); 
+    outline: none;
+    padding: 10px;
+    width: 90%;
+    border: 0; 
+    border-radius: 20px; 
+    font-size: 20px;
+}

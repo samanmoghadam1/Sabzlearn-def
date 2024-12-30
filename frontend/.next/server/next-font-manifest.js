@@ -1,0 +1,1 @@
+self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{\"/home/samanmoghadam/saman/fiels/practice/sabzlearn/frontend/app/layout\":[\"static/media/6bbfec961cf2e4c4-s.p.ttf\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":false}"

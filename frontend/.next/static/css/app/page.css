@@ -1,0 +1,295 @@
+/*!*******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./app/components/courses/course.css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************/
+.course {
+  margin: 0px 10px;
+  padding: 0px;
+  padding-bottom: 6px;
+  margin: auto;
+}
+
+.couse-offer {
+}
+
+.course-image-container {
+}
+
+.course-title {
+  cursor: pointer;
+}
+
+.course-image {
+  border-radius: 10px 10px 0px 0px;
+}
+.course-text {
+  padding: 15px 15px 0px 15px !important;
+}
+
+.course-price-information {
+  padding: 30px 15px 15px 15px !important;
+}
+
+.course-description {
+  font-size: 14px;
+}
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./app/components/homePagecomponetns/NavbarAndSearch.css ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************/
+.navbar-and-search-icons {
+    font-size: 19px;
+}
+
+.navbar-and-search-container {
+    background-image: url('/static-images/laptop.webp');
+    background-size: cover;
+    background-position: 50%; 
+    background-repeat: no-repeat;
+}
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./app/components/navbar/NavbarList/NavbarList.css ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************/
+/* top: -44, 
+    right: 0, 
+    backgroundColor: 'rgb(255 255 255)', */
+
+.navbar-list {
+  min-width: 250px;
+  min-height: 100vh;
+  position: fixed;
+  z-index: 1000 !important;
+  top: -0;
+  /* top: -44; */
+  right: 0;
+  background-color: rgb(255 255 255);
+  transition: all 0.1s ease-out;
+
+}
+
+.navbar-list-display-none {
+  min-width: 250px;
+  min-height: 100vh;
+  position: fixed;
+  background-color: rgb(255 255 255);
+  top: 0 !important;
+  right: -500px !important;
+  transition: right 0.4s ease;
+}
+
+.top-of-navbar-list {
+  padding-bottom: 25px;
+}
+
+.navbar-list-icons {
+  padding: 7px;
+  background-color: rgb(248 248 248);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  color: rgb(123, 134, 150) !important;
+  opacity: 70%;
+}
+
+.navbar-list-icons i {
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: light;
+}
+
+.input-navbar-list {
+  border-radius: 0px 30px 30px 0px;
+  outline: none;
+  box-shadow: none;
+  background-color: rgb(243 244 246);
+  border: None;
+  outline: none;
+}
+
+.button-navbar-list {
+  border-radius: 30px 0 0 30px;
+  font-size: 16px;
+  font-weight: lighter;
+  border: None;
+  opacity: 60%;
+  /* border-radius: 0px 20px 20px 0px; */
+}
+
+
+
+
+
+
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./app/components/navbar/Hamburger-button/HamburgerButton.css ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************/
+.bars {
+    
+}
+.bars .bar-btn {
+    width: 54px;
+    height: 54px;
+}
+
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./app/components/overlay/overlayComponent.css ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************/
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); 
+    -webkit-backdrop-filter: blur(5px); 
+            backdrop-filter: blur(5px); 
+    z-index: 1 !important; 
+    opacity: 0; 
+    visibility: hidden; 
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  
+  .overlay.active {
+    opacity: 1 !important;
+    visibility: visible !important; 
+  }
+  
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./app/components/navbar/Navbarfeature/basket/basket.css ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************/
+/* basket.css */
+
+.navbar-list-icons {
+  border: 0;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.basket-dropdown {
+  position: absolute;
+  background-color: white;
+  border-radius: 0.50rem;
+  z-index: 1000;
+  left: 10px;
+  margin-top: 10px;
+  min-width: 360px;
+  width: 380px;
+}
+
+.basket-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.3rem;
+  border-radius: 0.75rem;
+  background-color: rgba(10, 151, 212, 0.1);
+}
+
+.basket-header-text {
+  color: #17a2b8;
+  font-weight: bold;
+}
+
+.basket-content {
+  text-align: center;
+  padding: 1rem;
+  color: rgb(100, 116, 139);
+  font-size: 20px;
+}
+
+.basket-courses {
+  width: 350px;
+  max-height: 300px;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.basket-courses::-webkit-scrollbar {
+    width: 4px;
+    margin: 0;
+    padding: 0;
+
+}
+.basket-courses::-webkit-scrollbar-thumb {
+    /* background-color: red; */
+    background-color: rgb(212, 212, 209);
+    width: 4px;
+    border-radius: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+.basket-courses::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(199, 204, 199);
+    margin: 0;
+    padding: 0;
+}
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./app/components/courses/cartItemCourse/cartItemCourse.css ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************/
+/* cartItemCourse.css */
+
+.cart-item-course-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 17px;
+    direction: rtl;
+  }
+  
+  .cart-item-course-image {
+    border-radius: 0.75rem;
+  }
+  
+  .cart-item-course-details {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: start;
+  }
+  
+  .cart-item-course-title {
+    font-size: 16px;
+    text-align: start;
+  }
+  
+  .cart-item-course-price {
+    margin-left: auto;
+    font-size: 1rem;
+    opacity: 0.75;
+  }
+  
+  .cart-item-course-trash {
+    font-size: 1rem;
+  }
+
+  .cart-item-course-trash {
+    color: rgba(156 163 175 );
+    transition: all 0.1s ease-in-out;
+  }
+  .cart-item-course-trash:hover {
+    color: rgb(214, 24, 24);
+  }
+  
+/*!*******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./app/components/elemets/button.css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************/
+.sabzleaen-btn {
+  font-size: 16px;
+  background-color: var(--sabzlearn-color);
+  transition: all 0.1s ease-in-out;
+}
+
+.sabzleaen-btn:hover {
+    background-color: var(--sabzlearn-color-darker);
+}
+

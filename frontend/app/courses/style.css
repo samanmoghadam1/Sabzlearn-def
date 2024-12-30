@@ -1,0 +1,15 @@
+.courses-container {
+    background-color: rgb(243 244 246); 
+}
+
+.number-of-course-courses {
+    font-size: 18px;
+}
+
+.search-course-courses-form input {
+    outline: none;
+}
+.search-course-courses-form button {
+    color: rgb(140, 141, 141);
+
+}
