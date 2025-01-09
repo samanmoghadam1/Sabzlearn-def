@@ -1,4 +1,5 @@
-import customFetch from "./custom_fetch";
+  import customFetch from "./custom_fetch";
+import customServerFetch from "./custom_fetch_server";
 
 export async function fetchNavbarCategories() {
   try {
@@ -33,14 +34,12 @@ export async function fetchCoursesByCategories(id: number) {
 
 export async function fetchCourses() {
   try {
-    return await customFetch(
+    const response = await customServerFetch(
       `http://127.0.0.1:8000/courses/`,
-      "GET",
-      undefined,
-      {
-        cache: "no-store",
-      }
-    );
+      'GET', 
+      undefined
+    ) ;
+    return response
   } catch (error) {
     console.error("Error fetching courses by category:", error);
     throw new Error("An error occurred while fetching courses by category");
@@ -148,3 +147,5 @@ export const fecthLessonById = async (id: number) => {
   }
   return await response.json();
 };
+
+

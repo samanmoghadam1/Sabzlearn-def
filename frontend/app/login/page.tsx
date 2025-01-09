@@ -6,7 +6,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import * as Yup from "yup";
-import { getToken } from "../utils/fetchData";
+import Cookies from "js-cookie";
+import axios from "axios";
 
 interface FormData {
   email: string;
@@ -19,9 +20,10 @@ type Errors = {
 
 const LoginPage = () => {
   const router = useRouter();
+
   useEffect(() => {
-    const token = getToken();
-    if (token) {
+    const accessToken = Cookies.get("accessToken");
+    if (accessToken) {
       router.push("/");
     }
   }, [router]);
@@ -31,9 +33,7 @@ const LoginPage = () => {
     password: "",
   });
   const [isLoading, setIsLoading] = useState(false);
-
   const [allErrors, setAllErrors] = useState("");
-
   const [errors, setErrors] = useState<Errors>({});
 
   const validationSchema = Yup.object().shape({
@@ -58,26 +58,41 @@ const LoginPage = () => {
       await validationSchema.validate(formData, { abortEarly: false });
       setErrors({});
       setAllErrors("");
-      const response = await fetch("http://127.0.0.1:8000/api/token/", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData }),
-      });
 
-      if (response.ok) {
-        const data = await response.json();
-        localStorage.setItem("accessToken", data.access);
-        localStorage.setItem("refreshToken", data.refresh);
+      const response = await axios.post(
+        "http://127.0.0.1:8000/api/login/",
+        { ...formData },
+        { withCredentials: true }
+      );
+
+      if (response.status === 200) {
+        Cookies.set("accessToken", response.data.accessToken, {
+          expires: new Date(Date.now() + 60 * 60 * 24 * 1000),
+        });
+        Cookies.set("refreshToken", response.data.refreshToken, {
+          expires: new Date(Date.now() + 60 * 60 * 24 * 1000),
+        });
+
+        localStorage.setItem("accessToken", response.data.accessToken);
+        localStorage.setItem("refreshToken", response.data.refreshToken);
+
         router.push("/");
       } else {
-        setAllErrors("ایمیل یا پسورد اشتباه است");
+        setAllErrors(response.data.detail || "ایمیل یا گذرواژه اشتباه است");
       }
-    } catch (validationErrors: any) {
-      const formattedErrors: Errors = {};
-      validationErrors.inner.forEach((err: Yup.ValidationError) => {
-        formattedErrors[err.path as keyof FormData] = err.message;
-      });
-      setErrors(formattedErrors);
+    } catch (error: any) {
+      if (error.inner && Array.isArray(error.inner)) {
+        const formattedErrors: Errors = {};
+        error.inner.forEach((err: Yup.ValidationError) => {
+          if (err.path) {
+            formattedErrors[err.path as keyof FormData] = err.message;
+          }
+        });
+        setErrors(formattedErrors);
+      } else {
+        console.error("API Error:", error);
+        setAllErrors("خطایی در ارتباط با سرور رخ داده است");
+      }
     } finally {
       setIsLoading(false);
     }

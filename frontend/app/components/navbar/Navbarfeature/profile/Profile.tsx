@@ -23,7 +23,7 @@ const ProfileNavbar = () => {
 
   useEffect(() => {
     async function fetchingUser() {
-      const data = await fetchUserData();
+      const data: any = await fetchUserData();
       setUser(data);
     }
     const accessToken = localStorage.getItem("accessToken");
@@ -44,7 +44,6 @@ const ProfileNavbar = () => {
           <i className="fa-regular fa-user"></i>
         </button>
       ) : (
-        // if token is not assign
         <button
           onClick={() => router.push("login")}
           className={`navbar-list-icons border-0 basket-icon-navbar`}
@@ -85,11 +84,13 @@ const ProfileNavbar = () => {
               </li>
               </Link>
               {/*  */}
-              <li>
+              <Link href={`/my-account/courses`}>
+              <li onClick={()=> setOpen(false)}>
                 <i className="fa-regular fa-folder"></i>
 
                 <span>دوره های من</span>
               </li>
+              </Link>
               {/*  */}
               <li>
                 <i className="fa-regular fa-envelope"></i>

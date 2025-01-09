@@ -1,5 +1,3 @@
-import BlackFriday from "./components/discount/BlackFriday";
-import Navbar from "./components/navbar/Navbar";
 import Course from "./components/courses/Courses";
 import SecurityIcon from "./components/icons/securityIcon";
 import FrontEndIcon from "./components/icons/frontendIcon";
@@ -8,7 +6,6 @@ import SoftskillIcon from "./components/icons/softskillIcon";
 import Link from "next/link";
 import ArrowLeftIcon from "./components/icons/arrowLeftIcon";
 import NavbarAndSearch from "./components/homePagecomponetns/NavbarAndSearch";
-import VideoPlayer from "./components/videoPlayer/VideoPlayer";
 
 interface CourseItemInterface {
   category: number;
@@ -39,6 +36,7 @@ const HomePage = async () => {
   } catch (error) {
     console.log(error);
   }
+  
 
   return (
     <>
@@ -50,6 +48,10 @@ const HomePage = async () => {
       >
         <h2 className="fw-bold fw-bold text-center">آخرین دوره های سبزلرن</h2>
         <p className="opacity-75 text-center">سکوی پرتاب شما به سمت موفقیت</p>
+        <Link className="text-success d-block text-center" href="/courses">
+              مشاهده همه دوره ها
+              <ArrowLeftIcon width="20px" />
+            </Link>
 
         <div className="row ">
           {courses.map((item: CourseItemInterface, index: number) => {
@@ -124,7 +126,7 @@ const HomePage = async () => {
           <div className="populares-course mt-5 ">
             <h3 className="fw-bold">محبوب ترین دوره ها</h3>
             <p className="opacity-75">پر مخاطب ترین دوره های رایگان</p>
-            <Link className="text-success" href="">
+            <Link className="text-success" href="/courses">
               مشاهده همه دوره ها
               <ArrowLeftIcon width="20px" />
             </Link>

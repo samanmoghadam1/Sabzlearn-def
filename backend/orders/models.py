@@ -50,3 +50,10 @@ class Payment(models.Model):
 
     def __str__(self):
         return f"Payment {self.id} by {self.user.email}"
+
+
+class PurchasedCourses(models.Model): 
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='purchased_courses')
+    course = models.ForeignKey(Course, on_delete=models.PROTECT, related_name='purchased_courses') 
+    added_at = models.DateTimeField(auto_now_add=True) 
+    

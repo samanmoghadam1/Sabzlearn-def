@@ -1,11 +1,11 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from .models import CartItem, Order, Course
+from .models import CartItem, Order, Course, Payment, PurchasedCourses
 from django.contrib.auth import get_user_model
 from rest_framework import status
 from rest_framework.decorators import permission_classes
 from rest_framework.permissions import IsAuthenticated
-from .serializer import CartItemSerializer
+from .serializer import CartItemSerializer, PaymentSerializer
 
 User = get_user_model()
 
@@ -28,7 +28,7 @@ def create_cart_item(request):
     )
 
     if CartItem.objects.filter(order=order, course=course).exists():
-        return Response({"error": "Course already exists in the cart"})
+        return Response({"error": "Course already exists in the cart"}, status=status.HTTP_409_CONFLICT)
 
     cart_item = CartItem.objects.create(
         user=user,
@@ -51,3 +51,49 @@ def list_cart_item(request):
     serializer = CartItemSerializer(cart_items, many=True, context={'request': request})
 
     return Response(serializer.data)
+
+
+
+@permission_classes([IsAuthenticated]) 
+@api_view(['GET']) 
+def list_purchased_courses(request): 
+    user = request.user 
+    courses = user.purchased_courses.all()
+    return Response(courses) 
+
+
+@permission_classes([IsAuthenticated])
+@api_view(['post'])
+def create_payment(request): 
+    # 'id', 'user', 'order', 'price', 'payment_date', 'is_successful'
+    user = request.user 
+    order_id = int(request.data.get('order'))
+    price = float(request.data.get('price'))
+    is_successful = bool(request.data.get('is_successful'))
+
+    order = Order.objects.filter(id=order_id).first() 
+    # if user is not order.user: 
+    #     return Response({'error': "somtings wrong (authentication wrong)"})
+    
+    
+
+    if user and order and price  and is_successful: 
+        payment = Payment.objects.create(
+            user=user, 
+            order=order, 
+            price=price, 
+            is_successful = is_successful
+        ) 
+        serializer = PaymentSerializer(payment)
+        order.is_paid = True 
+        order.status= 'paid'
+
+        for cart_item in order.cart_items.all(): 
+            #user course added_at
+            PurchasedCourses.objects.create(user=request.user, course=cart_item.course)
+            cart_item.delete() 
+
+        order.save() 
+        return Response(serializer.data) 
+    
+    return Response({'error': "somtings wrong (field required)"})

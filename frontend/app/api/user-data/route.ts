@@ -1,7 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-
+// import { cookies } from "next/headers";
 export async function GET(req: NextRequest) {
-  const token = req.cookies.get("accessToken");
+  // const cookieStore = await cookies(); 
+  // const token = cookieStore.get('accessToken')?.value; 
+  const token = req.cookies.get("accessToken")?.value;
   console.log('token: ', token); 
 
   if (!token) {
@@ -21,10 +23,10 @@ export async function GET(req: NextRequest) {
     } else {
       return NextResponse.json(
         { message: "Failed to fetch user data" },
-        { status: 500 }
+        { status: 401 }
       );
     }
-  } catch (error) {
+  } catch (error: any) {
     return NextResponse.json(
       { message: "Server error", error: error.message },
       { status: 500 }

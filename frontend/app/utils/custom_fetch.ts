@@ -1,4 +1,4 @@
-import { json } from "stream/consumers";
+import Cookies from "js-cookie";
 
 type FetchOption = Omit<RequestInit, "headers"> & {
   headers?: Record<string, string>;
@@ -12,7 +12,8 @@ async function customFetch<T>(
   body?: unknown,
   options: FetchOption = {}
 ): Promise<T> {
-  const accessToken = localStorage.getItem("accessToken");
+
+  const accessToken = Cookies.get('accessToken');  
   const headers = {
     ...options.headers,
     Authorization: `Bearer ${accessToken}`,
@@ -27,7 +28,7 @@ async function customFetch<T>(
   });
 
   if (response.status === 401) {
-    const refreshToken = localStorage.getItem("refreshToken");
+    const refreshToken = Cookies.get("refreshToken");
     if (refreshToken) {
       try {
         const refreshResponse = await fetch(
@@ -42,7 +43,7 @@ async function customFetch<T>(
         );
         if (refreshResponse.ok) {
           const { access } = await refreshResponse.json();
-          localStorage.setItem("accessToken", access);
+          Cookies.set("accessToken", access);
           const retyHeaders = {
             ...headers,
             Authorization: `Bearer ${access}`,

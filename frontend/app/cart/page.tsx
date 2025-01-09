@@ -5,6 +5,7 @@ import { fetchCoursesByUserOrder } from "../utils/fetchData";
 import { CartItemInterface } from "../components/navbar/Navbarfeature/basket/Basket";
 import CartInPage from "../components/courses/cartItemCourse/cartInCartPage/CartInPage";
 import Link from "next/link";
+import customFetch from "../utils/custom_fetch";
 
 const Cart = () => {
   const [isChecked, setIsChecked] = useState(false);
@@ -20,10 +21,22 @@ const Cart = () => {
   }, []);
 
   useEffect(() => {
-    
-    const response = courses.reduce((total: number, item: CartItemInterface)=> {return total += parseInt(item.course_data.price)}, 0)
-    setTotalPrice(response); 
+    const response = courses.reduce(
+      (total: number, item: CartItemInterface) => {
+        return (total += parseInt(item.course_data.price));
+      },
+      0
+    );
+    setTotalPrice(response);
   }, [courses]);
+
+  function handleSubmit() {
+    // 'id', 'user', 'order', 'price', 'payment_date', 'is_successful'
+    const order_id: number = courses[0].order;
+    customFetch("http://127.0.0.1:8000/orders/add/payemnts/", "POST", 
+    {order: order_id, price: totalPrice, is_successful:true}
+    );
+  }
 
   return (
     <div className="my-4 m-4">
@@ -110,6 +123,7 @@ const Cart = () => {
           </div>
           {/* <Button style={{fontSize: "15px"}} disable={true} className="mt-3 rounded-3 p-2" title="تکمیل خرید"/> */}
           <button
+            onClick={handleSubmit}
             onMouseOver={(e) =>
               ((e.target as HTMLButtonElement).style.backgroundColor =
                 "var(--sabzlearn-color-darker)")
