@@ -1,7 +1,6 @@
 from rest_framework import serializers
-from .models import CartItem, Payment
+from .models import CartItem, Payment, PurchasedCourses
 from courses.serializers import CourseSerializer
-
 
 class CartItemSerializer(serializers.ModelSerializer):
     course_data = CourseSerializer(source='course')
@@ -16,3 +15,17 @@ class PaymentSerializer(serializers.ModelSerializer):
         fields = ['id', 'user', 'order', 'price', 'payment_date', 'is_successful']
 
 
+class PurchasedCoursesSerializer(serializers.ModelSerializer):
+    courses = serializers.SerializerMethodField() 
+
+    def get_courses(self, obj): 
+        return {
+            'id': obj.course.id, 
+            'name': obj.course.name, 
+            'teacher': obj.course.teacher.name, 
+            'image': obj.course.image.url if obj.course.image else None, 
+            'point': obj.course.point
+        }
+    class Meta:
+        model = PurchasedCourses
+        fields = ['id', 'course', 'added_at', 'courses']

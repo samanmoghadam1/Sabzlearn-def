@@ -6,8 +6,10 @@ import { CartItemInterface } from "../components/navbar/Navbarfeature/basket/Bas
 import CartInPage from "../components/courses/cartItemCourse/cartInCartPage/CartInPage";
 import Link from "next/link";
 import customFetch from "../utils/custom_fetch";
+import { useRouter } from "next/navigation";
 
 const Cart = () => {
+  const router = useRouter();  
   const [isChecked, setIsChecked] = useState(false);
   const [courses, setCourses] = useState<CartItemInterface[]>([]);
   const [totalPrice, setTotalPrice] = useState(0);
@@ -15,6 +17,9 @@ const Cart = () => {
   useEffect(() => {
     async function fetchData() {
       const courses = await fetchCoursesByUserOrder();
+      if (courses.length === 0) {
+        router.push("/courses");
+      }
       setCourses(courses);
     }
     fetchData();
@@ -36,6 +41,7 @@ const Cart = () => {
     customFetch("http://127.0.0.1:8000/orders/add/payemnts/", "POST", 
     {order: order_id, price: totalPrice, is_successful:true}
     );
+    window.location.href = '/cart'; 
   }
 
   return (
@@ -134,7 +140,6 @@ const Cart = () => {
             }
             className="btn d-block w-100 mt-3 text-white"
             style={{ backgroundColor: "var(--sabzlearn-color)" }}
-            disabled={!isChecked}
           >
             تکمیل خرید
           </button>

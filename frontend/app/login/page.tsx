@@ -70,7 +70,7 @@ const LoginPage = () => {
           expires: new Date(Date.now() + 60 * 60 * 24 * 1000),
         });
         Cookies.set("refreshToken", response.data.refreshToken, {
-          expires: new Date(Date.now() + 60 * 60 * 24 * 1000),
+          expires: new Date(Date.now() + 60 * 60 * 24 * 1000 * 4),
         });
 
         localStorage.setItem("accessToken", response.data.accessToken);

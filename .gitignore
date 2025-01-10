@@ -1,2 +1,14 @@
-frontend/node_modules
-venv
+# Node.js
+frontend/node_modules/
+
+# Virtual environments
+venv/
+
+# Next.js build directory
+frontend/.next/
+
+# SQLite database
+backend/db.sqlite3
+
+# Python bytecode files
+backend/*/__pycache__/

@@ -5,10 +5,11 @@ from django.contrib.auth import get_user_model
 from rest_framework import status
 from rest_framework.decorators import permission_classes
 from rest_framework.permissions import IsAuthenticated
-from .serializer import CartItemSerializer, PaymentSerializer
+from .serializer import CartItemSerializer, PaymentSerializer, PurchasedCoursesSerializer
 
 User = get_user_model()
 
+@permission_classes([IsAuthenticated]) 
 @api_view(['POST'])
 def create_cart_item(request): 
     user = request.user  
@@ -23,12 +24,15 @@ def create_cart_item(request):
         return Response({"error": "Course not found"}, status=status.HTTP_404_NOT_FOUND)
 
     order, created = Order.objects.get_or_create(
-        user=user, 
-        is_paid=False,
+        user=user,
     )
+    purchased_course =  user.purchased_courses.all()
 
     if CartItem.objects.filter(order=order, course=course).exists():
         return Response({"error": "Course already exists in the cart"}, status=status.HTTP_409_CONFLICT)
+
+    if course in purchased_course: 
+        return Response({"error": "Course already exists in the purchased course"})
 
     cart_item = CartItem.objects.create(
         user=user,
@@ -59,7 +63,9 @@ def list_cart_item(request):
 def list_purchased_courses(request): 
     user = request.user 
     courses = user.purchased_courses.all()
-    return Response(courses) 
+    serializer = PurchasedCoursesSerializer(courses, many=True, context={'request': request}) 
+
+    return Response(serializer.data)  
 
 
 @permission_classes([IsAuthenticated])
@@ -97,3 +103,5 @@ def create_payment(request):
         return Response(serializer.data) 
     
     return Response({'error': "somtings wrong (field required)"})
+
+

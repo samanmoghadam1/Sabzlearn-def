@@ -45,6 +45,7 @@ const CourseDetail = async ({
   const data: CourseItemInterface = await fetchDetailCourse(id);
   const headlines = await fetchHeadLinesByCourse(id);
   const reviews = await fetchReviewsByCourse(id);
+  
   return (
     <div>
       <nav aria-label="breadcrumb-nav">
@@ -85,6 +86,7 @@ const CourseDetail = async ({
             {data.price} <span className="h5">تومان</span>
           </span>
           <button
+          
             // style={{ backgroundColor: "rgb(34 197 94)" }}
             className="text-white  rounded-5 d-block w-100 p-3 mt-4 add-to-basket-btn"
           >

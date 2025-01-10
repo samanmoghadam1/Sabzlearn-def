@@ -18,22 +18,28 @@
       "static/css/app/courses/page.css",
       "static/chunks/app/courses/page.js"
     ],
+    "/courses/[id]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/courses/[id]/page.css",
+      "static/chunks/app/courses/[id]/page.js"
+    ],
     "/my-account/courses/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/my-account/courses/page.js"
     ],
-    "/cart/page": [
+    "/lesson/[id]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/cart/page.css",
-      "static/chunks/app/cart/page.js"
+      "static/css/app/lesson/[id]/page.css",
+      "static/chunks/app/lesson/[id]/page.js"
     ],
-    "/login/page": [
+    "/profile/[id]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/login/page.css",
-      "static/chunks/app/login/page.js"
+      "static/css/app/profile/[id]/page.css",
+      "static/chunks/app/profile/[id]/page.js"
     ],
     "/_not-found/page": [
       "static/chunks/webpack.js",
