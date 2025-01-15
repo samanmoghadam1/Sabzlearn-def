@@ -6,11 +6,14 @@ from rest_framework import status
 from rest_framework.decorators import permission_classes
 from rest_framework.permissions import IsAuthenticated
 from .serializer import CartItemSerializer, PaymentSerializer, PurchasedCoursesSerializer
+from rest_framework import generics
+
 
 User = get_user_model()
 
-@permission_classes([IsAuthenticated]) 
 @api_view(['POST'])
+@permission_classes([IsAuthenticated]) 
+
 def create_cart_item(request): 
     user = request.user  
     course_id = request.data.get('course_id')
@@ -40,14 +43,37 @@ def create_cart_item(request):
         order=order
     )
 
-    serializer = CartItemSerializer(cart_item)
+    serializer = CartItemSerializer(cart_item, context={'request': request})
 
     return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
 
-@permission_classes([IsAuthenticated])
+@api_view(['DELETE']) 
+@permission_classes([IsAuthenticated] )
+def delete_cart_item(request, pk):
+    try :
+        pk = int(pk)
+        user = request.user 
+        order = Order.objects.filter(user=user).first() 
+        cart_item = order.cart_items.filter(course_id=pk)
+        cart_item.delete() 
+        return Response({'message': 'success'})
+    except :
+        return Response({'error': "cant delete"}, status=status.HTTP_400_BAD_REQUEST) 
+    
+    
+
+
+class DeleteCartItem(generics.DestroyAPIView): 
+    queryset = CartItem.objects.all()
+    lookup_field = 'pk' 
+    serializer_class = CartItemSerializer 
+    permission_classes = [IsAuthenticated]
+    
+
 @api_view(['GET'])
+@permission_classes([IsAuthenticated])
 def list_cart_item(request):
     user = request.user
     cart_items = user.cart_items.all()  
@@ -105,3 +131,8 @@ def create_payment(request):
     return Response({'error': "somtings wrong (field required)"})
 
 
+
+
+# {
+# "course_id" : 3
+# }

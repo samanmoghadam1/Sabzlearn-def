@@ -1,10 +1,11 @@
-import Link from "next/link";
-import Course from "../components/courses/Courses";
+"use client";
+
 import CourseCategories from "../components/features/courseFilters/CourseCategories";
 import { fetchCourses } from "../utils/fetchData";
 import "./style.css";
 import CourseFilters from "@/app/components/features/courseFilters/CourseFilters";
 import AllCourses from "../components/courses/AllCourse";
+import { useEffect, useState } from "react";
 
 export interface CourseItemInterface {
   category_data: {
@@ -22,17 +23,31 @@ export interface CourseItemInterface {
   number_of_sessions: number;
   price: number;
   teacher: string;
-  point: number; 
-  offer: number; 
+  point: number;
+  offer: number;
   user_data: {
     name: string;
     email: string;
-    id: number; 
+    id: number;
   };
 }
 
-const CoursesPage = async () => {
-  const courses: CourseItemInterface[] = await fetchCourses();
+const CoursesPage = () => {
+  const [courses, setCourses] = useState<CourseItemInterface[]>([]);
+  const [originalCourses, setOriginalCourses] = useState<CourseItemInterface[]>(
+    []
+  );
+
+  useEffect(() => {
+    async function fetchData() {
+      const response: any = await fetchCourses();
+      if (response) {
+        setCourses(response);
+        setOriginalCourses(response); 
+      }
+    }
+    fetchData();
+  }, []);
   return (
     <div className="p-2 pb-5 courses-container">
       <div className="text-center mt-4">
@@ -54,8 +69,8 @@ const CoursesPage = async () => {
             <i className="fa-solid fa-magnifying-glass"></i>
           </button>
           <div className="d-flex justify-content-center gap-3 mt-3 px-4">
-            <CourseFilters />
-            <CourseCategories />
+            <CourseFilters courses={courses} setCourses={setCourses} originalCourses={originalCourses}/>
+            <CourseCategories courses={courses} setCourses={setCourses} originalCourses={originalCourses} />
           </div>
         </form>
 

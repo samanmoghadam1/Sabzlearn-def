@@ -9,14 +9,14 @@ import customFetch from "../utils/custom_fetch";
 import { useRouter } from "next/navigation";
 
 const Cart = () => {
-  const router = useRouter();  
+  const router = useRouter();
   const [isChecked, setIsChecked] = useState(false);
   const [courses, setCourses] = useState<CartItemInterface[]>([]);
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
     async function fetchData() {
-      const courses = await fetchCoursesByUserOrder();
+      const courses: any = await fetchCoursesByUserOrder();
       if (courses.length === 0) {
         router.push("/courses");
       }
@@ -38,10 +38,12 @@ const Cart = () => {
   function handleSubmit() {
     // 'id', 'user', 'order', 'price', 'payment_date', 'is_successful'
     const order_id: number = courses[0].order;
-    customFetch("http://127.0.0.1:8000/orders/add/payemnts/", "POST", 
-    {order: order_id, price: totalPrice, is_successful:true}
-    );
-    window.location.href = '/cart'; 
+    customFetch("http://127.0.0.1:8000/orders/add/payemnts/", "POST", {
+      order: order_id,
+      price: totalPrice,
+      is_successful: true,
+    });
+    window.location.href = "/cart";
   }
 
   return (
@@ -72,6 +74,8 @@ const Cart = () => {
                     title={item.course_data.name}
                     user_id={item.course_data.user_data.id}
                     key={index}
+                    courses={courses} 
+                    setCourses={setCourses}
                   />
                 </div>
               );
@@ -129,6 +133,7 @@ const Cart = () => {
           </div>
           {/* <Button style={{fontSize: "15px"}} disable={true} className="mt-3 rounded-3 p-2" title="تکمیل خرید"/> */}
           <button
+            disabled={!isChecked}
             onClick={handleSubmit}
             onMouseOver={(e) =>
               ((e.target as HTMLButtonElement).style.backgroundColor =

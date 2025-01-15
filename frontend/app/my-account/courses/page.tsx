@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 // http://127.0.0.1:8000/orders/purchased_courses/list/
 
 interface courseInterface {
-  courses: {id: number; name: string; point: number; image: string; teacher: string };
+  courses: {id: number; name: string; point: number; image: string; teacher: {name:string, id: number} };
 }
 const accoutCourses = () => {
   const [courses, setCourses] = useState<courseInterface[]>([]);
@@ -97,7 +97,7 @@ const accoutCourses = () => {
                     >
                       <i className="far fa-user"></i>
                       <span style={{ fontSize: "14px" }}>
-                        {course.courses.teacher}
+                        {course.courses.teacher.name}
                       </span>
                     </span>
                     <span className=" text-warning">

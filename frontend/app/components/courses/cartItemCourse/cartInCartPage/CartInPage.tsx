@@ -1,6 +1,8 @@
+import { handleClickedDeleteCartItem } from "@/app/utils/fetchData";
 import "./CartInPage.css";
 
 import Image from "next/image";
+import { CartItemInterface } from "@/app/components/navbar/Navbarfeature/basket/Basket";
 
 interface CourseProps {
   offer: null | number;
@@ -13,6 +15,8 @@ interface CourseProps {
   price: number;
   id: number;
   user_id: number;
+  courses: CartItemInterface[] ; 
+  setCourses: (courses: CartItemInterface[])=> void; 
 }
 
 const CartInPage = ({
@@ -26,6 +30,7 @@ const CartInPage = ({
   studentsNumber,
   id,
   user_id,
+  courses, setCourses
 }: CourseProps) => {
   return (
     <div className=" position-relative d-flex justify-content-center align-items-center flex-column ">
@@ -36,7 +41,7 @@ const CartInPage = ({
         height={150}
         alt="course image"
       />
-      <div className="x-container-for-cart position-absolute bg-white p-1 rounded-circle d-flex justify-content-center align-items-center">
+      <div onClick={()=>{handleClickedDeleteCartItem(id, courses, setCourses)}} className="x-container-for-cart position-absolute bg-white p-1 rounded-circle d-flex justify-content-center align-items-center">
         <i className="fa-solid fa-xmark"></i>
       </div>
       <h6 style={{ fontSize: "15px" }}>{title}</h6>

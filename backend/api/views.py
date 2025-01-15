@@ -19,7 +19,8 @@ def create_user(request):
     password = request.data.get('password')
     phone_number = request.data.get('phone_number')
     role = request.data.get('role')
-    name = request.data.get('name')
+    name = request.data.get('name') 
+
     if not all([email, password, phone_number, role, name]):
         return Response({"error": "All fields are required"}, status=400)
 
@@ -47,6 +48,7 @@ def user_info(request):
             'email': user.email,
             'phone_number': user.phone_number,
             'role': user.role,
+            'avatar': user.avatar.url
         })
     return Response({"error": "User is not authenticated"}, status=401)
 

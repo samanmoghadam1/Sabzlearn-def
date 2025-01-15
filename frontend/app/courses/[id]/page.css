@@ -1,19 +1,19 @@
 .breadcrumb-nav {
-  background-color: #ffffff; 
-  padding: 15px 25px; 
-  border-radius: 10px; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); 
+  background-color: #ffffff;
+  padding: 15px 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   margin-bottom: 30px;
-  border: 1px solid #e3e3e3; 
+  border: 1px solid #e3e3e3;
 }
 
 .breadcrumb {
   display: flex;
-  gap: 10px; 
-  list-style: none; 
+  gap: 10px;
+  list-style: none;
   margin: 0;
   padding: 0;
-  font-size: 1.2rem; 
+  font-size: 1.2rem;
 }
 
 .breadcrumb-item {
@@ -23,28 +23,28 @@
 }
 
 .breadcrumb-item a {
-  text-decoration: none; 
+  text-decoration: none;
   /* color: #0056b3;  */
-  transition: color 0.3s ease; 
+  transition: color 0.3s ease;
 }
 
 .breadcrumb-item a:hover {
-  color: #00376b; 
+  color: #00376b;
 }
 
 .breadcrumb-item.active {
-  font-weight: bold; 
-  color: #212529; 
+  font-weight: bold;
+  color: #212529;
 }
 
 .fa-house {
-  margin-right: 8px; 
-  font-size: 1.3rem; 
+  margin-right: 8px;
+  font-size: 1.3rem;
   /* color: #007bff;  */
 }
 
 nav .breadcrumb-item::after {
-  content: " ›"; 
+  content: " ›";
   color: #adb5bd;
   font-weight: bold;
   margin-left: 10px;
@@ -54,26 +54,25 @@ nav .breadcrumb-item:last-child::after {
   content: "";
 }
 
-
 .look-my-profile-courses {
-  padding: 10px; 
+  padding: 10px;
   padding: 10px 14px 10px 14px;
   font-size: 17px;
-  background-color: white; 
-  color: rgb(34 197 94); 
+  background-color: white;
+  color: rgb(34 197 94);
   border: 1px solid rgb(34 197 94);
   border-radius: 25px;
   transition: all 0.1s ease-in-out;
 }
 
 .look-my-profile-courses:hover {
-  background-color: rgb(34 197 94); 
-  color: white; 
+  background-color: rgb(34 197 94);
+  color: white;
 }
 
 .add-to-basket-btn {
   background-color: rgb(34 197 94);
-  border: 0; 
+  border: 0;
   transition: background-color 0.1s ease-in-out;
 }
 
@@ -82,8 +81,39 @@ nav .breadcrumb-item:last-child::after {
   background-color: rgb(43, 161, 86);
 }
 
-
-
 .reply-icon-courses:hover {
-  background-color: rgb(212, 237, 247) ;
+  background-color: rgb(212, 237, 247);
+}
+
+.text-area-for-comment-course {
+  height: 200px;
+  background-color: rgb(243 244 246);
+  outline: none;
+  font-size: 14px;
+  border: 2px solid rgb(243 244 246);
+  box-sizing: border-box;
+}
+
+.text-area-for-comment-course:focus {
+  border-top: 2px solid #3b82f680;
+  border-bottom: 2px solid #3b82f680;
+}
+
+.cancle-cooment-btn {
+  border: 1px solid var(--sabzlearn-color);
+  color: var(--sabzlearn-color);
+  transition: all 0.1s ease-in-out;
+}
+
+.cancle-cooment-btn:hover {
+  background-color: #ececec !important;
+  border: 1px solid var(--sabzlearn-color) !important;
+}
+
+.send-comment-btn {
+  background-color: var(--sabzlearn-color);
+  transition: all 0.1s ease-in-out;
+}
+.send-comment-btn:hover {
+  background-color: var(--sabzlearn-color-darker);
 }

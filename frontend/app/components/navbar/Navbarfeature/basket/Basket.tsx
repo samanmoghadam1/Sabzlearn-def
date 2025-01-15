@@ -122,6 +122,7 @@
 // export default BasketNavbar;
 
 "use client";
+export const dynamic = 'force-dynamic'
 
 import Course from "@/app/components/courses/Courses";
 import OverlayComponent from "@/app/components/overlay/overlayComponent";
@@ -131,6 +132,7 @@ import { useEffect, useState } from "react";
 import "./basket.css";
 import CartItemCourse from "@/app/components/courses/cartItemCourse/CartItemCourse";
 import Button from "@/app/components/elemets/Button";
+import customFetch from "@/app/utils/custom_fetch";
 
 export interface CartItemInterface {
   id: number;
@@ -171,7 +173,7 @@ const BasketNavbar = ({ btnStyle }: { btnStyle?: {} }) => {
   const [totalPrice, setTotalPrice] = useState(0);
   useEffect(() => {
     async function get_data() {
-      const response = await fetchCoursesByUserOrder();
+      const response: any = await fetchCoursesByUserOrder();
       setCourses(response);
     }
     get_data();
@@ -185,6 +187,8 @@ const BasketNavbar = ({ btnStyle }: { btnStyle?: {} }) => {
     setTotalPrice(totalCoursePrice);
   }, [courses]);
 
+  
+
   return (
     <div className="position-relative">
       <button
@@ -194,7 +198,9 @@ const BasketNavbar = ({ btnStyle }: { btnStyle?: {} }) => {
           open ? "position-relative z-3" : ""
         }`}
       >
-        <i className={`fas fa-bag-shopping ${btnStyle ? ' text-white' : null}`} ></i>
+        <i
+          className={`fas fa-bag-shopping ${btnStyle ? " text-white" : null}`}
+        ></i>
       </button>
 
       {open ? (
@@ -219,6 +225,8 @@ const BasketNavbar = ({ btnStyle }: { btnStyle?: {} }) => {
                             price={item.course_data.price}
                             title={item.course_data.name}
                             key={index}
+                            courses={courses} 
+                            setCourses = {setCourses}
                           />
                         </div>
                       );

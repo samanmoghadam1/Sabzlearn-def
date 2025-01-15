@@ -1,10 +1,10 @@
 import Course from "./Courses";
 import { CourseItemInterface } from "@/app/courses/page";
 
-const AllCourses = ({ arr }: { arr: CourseItemInterface[] }) => {
+const AllCourses = ({ arr }: { arr: any }) => {
   return (
     <div className="my-5">
-      {arr.map((item, index: number) => {
+      {arr.map((item: CourseItemInterface, index: number) => {
         return (
           <Course
             description={item.description}

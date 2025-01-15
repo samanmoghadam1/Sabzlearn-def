@@ -1,9 +1,39 @@
 "use client";
+
 import { useState } from "react";
 import OverlayComponent from "../../overlay/overlayComponent";
+import { CourseItemInterface } from "@/app/courses/page";
 
-const CourseCategories = () => {
+const CourseCategories = ({
+  courses,
+  setCourses,
+  originalCourses,
+}: {
+  courses: CourseItemInterface[];
+  setCourses: (item: CourseItemInterface[]) => void;
+  originalCourses: CourseItemInterface[];
+}) => {
   const [open, setOpen] = useState(false);
+  const [pointer, setPointer] = useState<number>(3);
+
+  function sortByAllCourses(e: any) {
+    setCourses([...originalCourses]);
+    setPointer(0);
+  }
+
+  function sortByCheapPrice(e: any) {
+    let filtered = [...originalCourses];
+    filtered = filtered.sort((a, b) => a.price - b.price);
+    setCourses(filtered);
+    setPointer(1);
+  }
+
+  function sortByExpensivePrice(e: any) {
+    let filtered = [...originalCourses];
+    filtered = filtered.sort((a, b) => a.price + b.price);
+    setCourses(filtered);
+    setPointer(2);
+  }
 
   return (
     <>
@@ -39,46 +69,85 @@ const CourseCategories = () => {
               </div>
 
               <div className="bg-white">
-                <span className="d-flex justify-content-between border-bottom p-4">
-                  <span className="opacity-75">
-                    همه دوره ها
-                  </span>
-                  <i
-                    style={{
-                      width: "19px",
-                      height: "19px",
-                      textAlign: "center",
-                      cursor: "pointer",
-                    }}
-                    className="fa-solid fa-check text-success border border-success p-2 d-flex justify-content-center align-items-center rounded-circle"
-                  ></i>
+                <span
+                  style={{ cursor: "pointer" }}
+                  onClick={sortByAllCourses}
+                  className="d-flex justify-content-between border-bottom p-4"
+                >
+                  <span className="opacity-75">همه دوره ها</span>
+                  {pointer === 0 ? (
+                    <i
+                      style={{
+                        width: "19px",
+                        height: "19px",
+                        textAlign: "center",
+                        cursor: "pointer",
+                      }}
+                      className="fa-solid fa-check text-success border border-success p-2 d-flex justify-content-center align-items-center rounded-circle"
+                    ></i>
+                  ) : null}
+                </span>
+                {/*  */}
+                <span
+                  style={{ cursor: "pointer" }}
+                  onClick={sortByCheapPrice}
+                  className="d-flex justify-content-between border-bottom p-4"
+                >
+                  <span className="opacity-75">ارزان ترین</span>
+
+                  {pointer === 1 ? (
+                    <i
+                      style={{
+                        width: "19px",
+                        height: "19px",
+                        textAlign: "center",
+                        cursor: "pointer",
+                      }}
+                      className="fa-solid fa-check text-success border border-success p-2 d-flex justify-content-center align-items-center rounded-circle"
+                    ></i>
+                  ) : null}
+                </span>
+                {/*  */}
+                <span
+                  style={{ cursor: "pointer" }}
+                  onClick={sortByExpensivePrice}
+                  className="d-flex justify-content-between border-bottom p-4"
+                >
+                  <span className="opacity-75">گران ترین</span>
+
+                  {pointer === 2 ? (
+                    <i
+                      style={{
+                        width: "19px",
+                        height: "19px",
+                        textAlign: "center",
+                        cursor: "pointer",
+                      }}
+                      className="fa-solid fa-check text-success border border-success p-2 d-flex justify-content-center align-items-center rounded-circle"
+                    ></i>
+                  ) : null}
                 </span>
                 {/*  */}
                 <span className="d-flex justify-content-between border-bottom p-4">
-                  <span className="opacity-75">
-                    ارزان ترین
-                  </span>
-                  
-                </span>
-                {/*  */}
-                <span className="d-flex justify-content-between border-bottom p-4">
-                  <span className="opacity-75">
-                    گران ترین
-                  </span>
-                  
-                </span>
-                {/*  */}
-                <span className="d-flex justify-content-between border-bottom p-4">
-                  <span className="opacity-75">
-                    پرمخاطب ترین
-                  </span>
-                  
+                  <span className="opacity-75">///</span>
+
+                  {pointer === 3 ? (
+                    <i
+                      style={{
+                        width: "19px",
+                        height: "19px",
+                        textAlign: "center",
+                        cursor: "pointer",
+                      }}
+                      className="fa-solid fa-check text-success border border-success p-2 d-flex justify-content-center align-items-center rounded-circle"
+                    ></i>
+                  ) : null}
                 </span>
                 {/*  */}
               </div>
             </div>
           </div>
-          <OverlayComponent open={open} setOpen={setOpen} classname="active"/>
+          <OverlayComponent open={open} setOpen={setOpen} classname="active" />
         </>
       )}
     </>

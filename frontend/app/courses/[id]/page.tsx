@@ -11,6 +11,10 @@ import Link from "next/link";
 import Comment, {
   commentInterFace,
 } from "@/app/components/commentComponent/Comment";
+import AddToBasketButton from "./components/add_to_basket_btn";
+import { fetchUserDataFromServer } from "@/app/utils/fetchDataServer";
+import customServerFetch from "@/app/utils/custom_fetch_server";
+import ReviewsComponent from "./components/reviews";
 
 interface CourseItemInterface {
   category_data: {
@@ -29,7 +33,7 @@ interface CourseItemInterface {
   price: number;
   teacher: string;
   user_data: {
-    id: number; 
+    id: number;
     name: string;
     email: string;
     image: string;
@@ -45,7 +49,10 @@ const CourseDetail = async ({
   const data: CourseItemInterface = await fetchDetailCourse(id);
   const headlines = await fetchHeadLinesByCourse(id);
   const reviews = await fetchReviewsByCourse(id);
-  
+  const user = await fetchUserDataFromServer();
+
+  // http://127.0.0.1:8000/reviews/create/${id}
+
   return (
     <div>
       <nav aria-label="breadcrumb-nav">
@@ -85,13 +92,7 @@ const CourseDetail = async ({
             {" "}
             {data.price} <span className="h5">تومان</span>
           </span>
-          <button
-          
-            // style={{ backgroundColor: "rgb(34 197 94)" }}
-            className="text-white  rounded-5 d-block w-100 p-3 mt-4 add-to-basket-btn"
-          >
-            <span className="h5">افزودن به سبد خرید</span>
-          </button>
+          <AddToBasketButton id={id} />
         </div>
       </div>
 
@@ -166,45 +167,8 @@ const CourseDetail = async ({
         </div>
       </div>
       <div className="course-comments p-3 m-4 bg-white rounded-4">
-        <div className="d-flex justify-content-between align-items-center">
-          <h4>نظرات</h4>
-          <button
-            style={{ backgroundColor: "rgb(34 197 94)" }}
-            className="btn rounded-5 text-white "
-          >
-            ایجاد نظر جدید
-          </button>
-        </div>
-
-        <div
-          className="mt-4 p-3 rounded-3"
-          style={{ backgroundColor: "rgb(240 253 244)" }}
-        >
-          <p
-            style={{ color: "rgba(34 197 94)", fontSize: "15px" }}
-            className="opacity-100"
-          >
-            دانشجوی عزیز؛ سوالات مرتبط به پشتیبانی دوره در قسمت نظرات تایید
-            نخواهد شد، لطفا در بخش مشاهده آنلاین هر ویدیو سوالات خود را مطرح
-            کنید.
-          </p>
-        </div>
-
         <div>
-          {reviews.map((item: commentInterFace, index: number) => {
-            return (
-              <Comment
-                comment={item.comment}
-                created_at={item.created_at}
-                rate={item.rate}
-                id={item.id}
-                replies={item.replies}
-                role={item.role}
-                user_data={item.user_data}
-                key={index}
-              />
-            );
-          })}
+          <ReviewsComponent courseId={id} user={user} reviews={reviews} />
         </div>
       </div>
 
@@ -248,7 +212,11 @@ const CourseDetail = async ({
           className="rounded-circle"
         />
         <h4 className="mt-3 mb-5">{data.user_data.name} | مدرس دوره</h4>
-        <Link className="look-my-profile-courses" role="button" href={`/profile/${data.user_data.id}`}>
+        <Link
+          className="look-my-profile-courses"
+          role="button"
+          href={`/profile/${data.user_data.id}`}
+        >
           مشاهده پروفایل من{" "}
         </Link>
       </div>

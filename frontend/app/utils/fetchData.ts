@@ -1,5 +1,7 @@
-  import customFetch from "./custom_fetch";
+import { CartItemInterface } from "../components/navbar/Navbarfeature/basket/Basket";
+import customFetch from "./custom_fetch";
 import customServerFetch from "./custom_fetch_server";
+import Cookies from "js-cookie";
 
 export async function fetchNavbarCategories() {
   try {
@@ -36,10 +38,10 @@ export async function fetchCourses() {
   try {
     const response = await customServerFetch(
       `http://127.0.0.1:8000/courses/`,
-      'GET', 
+      "GET",
       undefined
-    ) ;
-    return response
+    );
+    return response;
   } catch (error) {
     console.error("Error fetching courses by category:", error);
     throw new Error("An error occurred while fetching courses by category");
@@ -68,10 +70,9 @@ export const fetchPaginatedCourses = async (page: number): Promise<any> => {
   return await customFetch(
     `http://127.0.0.1:8000/courses/?page=${page}`,
     "GET",
-    undefined,
+    undefined
   );
 };
-
 
 export const fetchDetailCourse = async (id: number) => {
   const response = await fetch(`http://127.0.0.1:8000/courses/${id}/`);
@@ -92,7 +93,10 @@ export const fetchHeadLinesByCourse = async (id: number) => {
 };
 
 export const fetchLeesonByHeadLine = async (id: number) => {
-  return await customFetch(`http://127.0.0.1:8000/courses/lessons/${id}`, "GET");
+  return await customFetch(
+    `http://127.0.0.1:8000/courses/lessons/${id}`,
+    "GET"
+  );
 };
 
 export const fetchReviewsByCourse = async (id: number) => {
@@ -120,23 +124,19 @@ export const fetchCoursesByUser = async (id: number) => {
 };
 
 export const fetchCoursesByUserOrder = async () => {
-  const token = getToken();
-  if (token) {
-    try {
-      const response = await fetch("http://127.0.0.1:8000/orders/cart/list/", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      if (response.ok) {
-        const data = await response.json();
-        return data || null;
-      }
-      throw new Error("Failed to fetch user data");
-    } catch (error) {
-      console.error("Error fetchin user data: ", error);
-      throw error;
+  try {
+    const response = await customFetch(
+      "http://127.0.0.1:8000/orders/cart/list/",
+      "GET"
+    );
+    if (response) {
+      const data = response;
+      return data || null;
     }
+    throw new Error("Failed to fetch user data");
+  } catch (error) {
+    console.error("Error fetchin user data: ", error);
+    throw error;
   }
 };
 
@@ -148,4 +148,24 @@ export const fecthLessonById = async (id: number) => {
   return await response.json();
 };
 
-
+export const handleClickedDeleteCartItem = async (
+  id: number,
+  courses: CartItemInterface[],
+  setCourses: (courses: CartItemInterface[]) => void
+) => {
+  try {
+    // http://127.0.0.1:8000/orders/cart/delete/${id}/
+    const response = await customFetch(
+      `http://127.0.0.1:8000/orders/cart/delete/${id}/`,
+      "DELETE",
+      undefined
+    );
+    if (response) {
+      const newCourses: CartItemInterface[] = courses.filter(
+        (course) => course.course_data.id !== id
+      );
+      setCourses(newCourses);
+      Cookies.remove(`course_basket${id}`);
+    }
+  } catch (error) {}
+};

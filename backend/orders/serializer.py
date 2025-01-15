@@ -22,7 +22,10 @@ class PurchasedCoursesSerializer(serializers.ModelSerializer):
         return {
             'id': obj.course.id, 
             'name': obj.course.name, 
-            'teacher': obj.course.teacher.name, 
+            'teacher': {
+                'name': obj.course.teacher.name, 
+                'id': obj.course.teacher.id, 
+            }, 
             'image': obj.course.image.url if obj.course.image else None, 
             'point': obj.course.point
         }
