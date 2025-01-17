@@ -5,7 +5,8 @@ import { fetchCourses } from "../utils/fetchData";
 import "./style.css";
 import CourseFilters from "@/app/components/features/courseFilters/CourseFilters";
 import AllCourses from "../components/courses/AllCourse";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { redirect } from "next/navigation";
 
 export interface CourseItemInterface {
   category_data: {
@@ -37,17 +38,19 @@ const CoursesPage = () => {
   const [originalCourses, setOriginalCourses] = useState<CourseItemInterface[]>(
     []
   );
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     async function fetchData() {
       const response: any = await fetchCourses();
       if (response) {
         setCourses(response);
-        setOriginalCourses(response); 
+        setOriginalCourses(response);
       }
     }
     fetchData();
   }, []);
+
   return (
     <div className="p-2 pb-5 courses-container">
       <div className="text-center mt-4">
@@ -56,11 +59,20 @@ const CoursesPage = () => {
           ۷۶ عنوان آموزشی
         </span>
 
-        <form className="mt-5 search-course-courses-form w-100">
+        <form
+          onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
+            redirect(`/courses/search/${search}`);
+          }}
+          className="mt-5 search-course-courses-form w-100"
+        >
           <input
             placeholder="جستجو بین دوره ها"
             className="p-4 border-0 btn-outline-none rounded-end-3 w-75"
             type="text"
+            value={search}
+            onChange={(e: React.FormEvent<HTMLInputElement>) => {
+              setSearch(e.currentTarget.value);
+            }}
           />
           <button
             type="submit"
@@ -69,8 +81,16 @@ const CoursesPage = () => {
             <i className="fa-solid fa-magnifying-glass"></i>
           </button>
           <div className="d-flex justify-content-center gap-3 mt-3 px-4">
-            <CourseFilters courses={courses} setCourses={setCourses} originalCourses={originalCourses}/>
-            <CourseCategories courses={courses} setCourses={setCourses} originalCourses={originalCourses} />
+            <CourseFilters
+              courses={courses}
+              setCourses={setCourses}
+              originalCourses={originalCourses}
+            />
+            <CourseCategories
+              courses={courses}
+              setCourses={setCourses}
+              originalCourses={originalCourses}
+            />
           </div>
         </form>
 

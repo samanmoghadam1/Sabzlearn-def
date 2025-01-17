@@ -5,10 +5,11 @@ frontend/node_modules/
 venv/
 
 # Next.js build directory
-frontend/.next/
+.next
 
 # SQLite database
 backend/db.sqlite3
 
 # Python bytecode files
 backend/*/__pycache__/
+

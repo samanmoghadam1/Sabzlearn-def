@@ -63,7 +63,7 @@ const NavbarAndSearch = () => {
 
       <form className="mt-4 d-flex justify-content-center p-2">
         <input
-          style={{ width: "90%", outline: "none", fontSize: "14px" }}
+          style={{ width: "400px", outline: "none", fontSize: "14px" }}
           type="text"
           className="border-0 p-2 rounded-end-5"
           placeholder="جستجو در بین دوره ها ..."
@@ -88,7 +88,7 @@ const NavbarAndSearch = () => {
           </button>
         </div>
       </form>
-      <div className="d-flex justify-content-between mt-4 px-5">
+      <div  className="d-flex  justify-content-between mt-4 px-5 ">
         <div className="d-flex flex-column text-white text-center align-items-center">
           <Image
             src={

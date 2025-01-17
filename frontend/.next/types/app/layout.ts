@@ -1,4 +1,4 @@
-// File: /home/samanmoghadam/saman/fiels/practice/sabzlearn-github-2/sabzlearn/frontend/app/layout.tsx
+// File: A:\practice\Sabzlearn-def\frontend\app\layout.tsx
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

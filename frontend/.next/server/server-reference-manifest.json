@@ -1,34 +1,29 @@
 {
   "node": {
-    "7f7e0b66384579f786d68aee76fbb38e6c92de75dc": {
+    "7f80372f5509db93ec2d22ba9dd19f30c6f49d3d28": {
       "workers": {
         "app/page": {
-          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fsamanmoghadam%2Fsaman%2Ffiels%2Fpractice%2Fsabzlearn-github-2%2Fsabzlearn%2Ffrontend%2Fapp%2Futils%2Fcustom_fetch_server.ts%22%2C%5B%5B%227f7e0b66384579f786d68aee76fbb38e6c92de75dc%22%2C%22default%22%5D%5D%5D%5D&__client_imported__=true!",
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22A%3A%5C%5Cpractice%5C%5CSabzlearn-def%5C%5Cfrontend%5C%5Capp%5C%5Cutils%5C%5Ccustom_fetch_server.ts%22%2C%5B%5B%227f80372f5509db93ec2d22ba9dd19f30c6f49d3d28%22%2C%22default%22%5D%5D%5D%5D&__client_imported__=true!",
           "async": false
         },
         "app/courses/page": {
-          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fsamanmoghadam%2Fsaman%2Ffiels%2Fpractice%2Fsabzlearn-github-2%2Fsabzlearn%2Ffrontend%2Fapp%2Futils%2Fcustom_fetch_server.ts%22%2C%5B%5B%227f7e0b66384579f786d68aee76fbb38e6c92de75dc%22%2C%22default%22%5D%5D%5D%5D&__client_imported__=true!",
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22A%3A%5C%5Cpractice%5C%5CSabzlearn-def%5C%5Cfrontend%5C%5Capp%5C%5Cutils%5C%5Ccustom_fetch_server.ts%22%2C%5B%5B%227f80372f5509db93ec2d22ba9dd19f30c6f49d3d28%22%2C%22default%22%5D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        },
+        "app/courses/search/[search]/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22A%3A%5C%5Cpractice%5C%5CSabzlearn-def%5C%5Cfrontend%5C%5Capp%5C%5Cutils%5C%5Ccustom_fetch_server.ts%22%2C%5B%5B%227f80372f5509db93ec2d22ba9dd19f30c6f49d3d28%22%2C%22default%22%5D%5D%5D%5D&__client_imported__=true!",
           "async": false
         },
         "app/courses/[id]/page": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fsamanmoghadam%2Fsaman%2Ffiels%2Fpractice%2Fsabzlearn-github-2%2Fsabzlearn%2Ffrontend%2Fapp%2Futils%2Fcustom_fetch_server.ts%22%2C%5B%5B%227f7e0b66384579f786d68aee76fbb38e6c92de75dc%22%2C%22default%22%5D%5D%5D%5D&__client_imported__=!",
-          "async": false
-        },
-        "app/_not-found/page": {
-          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fsamanmoghadam%2Fsaman%2Ffiels%2Fpractice%2Fsabzlearn-github-2%2Fsabzlearn%2Ffrontend%2Fapp%2Futils%2Fcustom_fetch_server.ts%22%2C%5B%5B%227f7e0b66384579f786d68aee76fbb38e6c92de75dc%22%2C%22default%22%5D%5D%5D%5D&__client_imported__=true!",
-          "async": false
-        },
-        "app/login/page": {
-          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2Fhome%2Fsamanmoghadam%2Fsaman%2Ffiels%2Fpractice%2Fsabzlearn-github-2%2Fsabzlearn%2Ffrontend%2Fapp%2Futils%2Fcustom_fetch_server.ts%22%2C%5B%5B%227f7e0b66384579f786d68aee76fbb38e6c92de75dc%22%2C%22default%22%5D%5D%5D%5D&__client_imported__=true!",
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22A%3A%5C%5Cpractice%5C%5CSabzlearn-def%5C%5Cfrontend%5C%5Capp%5C%5Cutils%5C%5Ccustom_fetch_server.ts%22%2C%5B%5B%227f80372f5509db93ec2d22ba9dd19f30c6f49d3d28%22%2C%22default%22%5D%5D%5D%5D&__client_imported__=!",
           "async": false
         }
       },
       "layer": {
         "app/page": "action-browser",
         "app/courses/page": "action-browser",
-        "app/courses/[id]/page": "rsc",
-        "app/_not-found/page": "action-browser",
-        "app/login/page": "action-browser"
+        "app/courses/search/[search]/page": "action-browser",
+        "app/courses/[id]/page": "rsc"
       }
     }
   },

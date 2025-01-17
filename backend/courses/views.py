@@ -8,6 +8,7 @@ from .serializers import CourseSerializer, CategorySerializer, HeadLineSerialize
 from .permissions import IsTeacher, CheckTeacher
 from accounts.models import User
 
+
 # Create your views here.
 
 class ListCourseAPIView(generics.ListAPIView): 
@@ -89,10 +90,20 @@ def list_courses_by_teacher(request, pk):
     return Response(serializer.data) 
 
 
+@api_view(['GET']) 
+def search_courses(request, params): 
+    print('search thing is: ', params)
+    courses = Course.objects.filter(name__icontains=params) 
+    serializer = CourseSerializer(courses, many=True, context={'request': request}) 
+    return Response(serializer.data) 
+
+
 # lesson 
 
 class RetrieveLessonAPIView(generics.RetrieveAPIView): 
     queryset = Lesson.objects.all() 
     lookup_field = "pk"
     serializer_class = LessonsSerializer
+
+
 

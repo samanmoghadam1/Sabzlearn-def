@@ -1,4 +1,4 @@
-'use client'; 
+"use client";
 
 // import { headers } from "next/headers";
 import Navbar from "./components/navbar/Navbar";
@@ -6,7 +6,7 @@ import Footer from "./components/footer/Footer";
 import ChatComponent from "./components/chatComponent/Chat";
 import { usePathname } from "next/navigation";
 
-export default  function ClientLayout({
+export default function ClientLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -17,14 +17,9 @@ export default  function ClientLayout({
   // const pathname = currentUrl?.pathname || "/";
   const pathname = usePathname();
 
-  console.log("path: ", pathname);
-
-
   if (pathname === "/login" || pathname === "/signup") {
     return <>{children}</>;
-  }
-
-  else if (pathname === "/") {
+  } else if (pathname === "/") {
     return (
       <>
         {children}
@@ -32,9 +27,7 @@ export default  function ClientLayout({
         <ChatComponent />
       </>
     );
-  }
-
-  else {
+  } else {
     return (
       <>
         <Navbar />
