@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
+
 interface userDataInterface {
   email: string;
   name: string;
@@ -16,10 +17,10 @@ interface userDataInterface {
   phone_number: number;
 }
 
-const ProfileNavbar = () => {
+const ProfileNavbar = ({ containerStyle, iconColor}: { containerStyle?: {backgroundColor?: string}, iconColor?: {color?: string} }) => {
   const [user, setUser] = useState<userDataInterface>();
   const [open, setOpen] = useState(false);
-  const [token, setToken] = useState<string | null>('')
+  const [token, setToken] = useState<string | null>("");
 
   useEffect(() => {
     async function fetchingUser() {
@@ -36,15 +37,17 @@ const ProfileNavbar = () => {
     <div className={open ? "position-relative" : ""}>
       {token ? (
         <button
+          style={containerStyle}
           onClick={() => setOpen(!open)}
           className={`navbar-list-icons border-0 basket-icon-navbar ${
             open ? "position-relative" : ""
           }`}
         >
-          <i className="fa-regular fa-user"></i>
+          <i style={iconColor} className="fa-regular  fa-user"></i>
         </button>
       ) : (
         <button
+          style={containerStyle}
           onClick={() => router.push("login")}
           className={`navbar-list-icons border-0 basket-icon-navbar`}
         >
@@ -76,20 +79,24 @@ const ProfileNavbar = () => {
             </div>
 
             <ol>
-              <Link href={'/my-account'}>
-              <li onClick={()=>{setOpen(false)}} >
-                <i className="fa-solid fa-house"></i>
+              <Link href={"/my-account"}>
+                <li
+                  onClick={() => {
+                    setOpen(false);
+                  }}
+                >
+                  <i className="fa-solid fa-house"></i>
 
-                <span>پیشخوان</span>
-              </li>
+                  <span>پیشخوان</span>
+                </li>
               </Link>
               {/*  */}
               <Link href={`/my-account/courses`}>
-              <li onClick={()=> setOpen(false)}>
-                <i className="fa-regular fa-folder"></i>
+                <li onClick={() => setOpen(false)}>
+                  <i className="fa-regular fa-folder"></i>
 
-                <span>دوره های من</span>
-              </li>
+                  <span>دوره های من</span>
+                </li>
               </Link>
               {/*  */}
               <li>

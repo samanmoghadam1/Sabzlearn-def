@@ -124,15 +124,12 @@
 "use client";
 export const dynamic = 'force-dynamic'
 
-import Course from "@/app/components/courses/Courses";
 import OverlayComponent from "@/app/components/overlay/overlayComponent";
 import { fetchCoursesByUserOrder } from "@/app/utils/fetchData";
-import { short_text } from "@/app/utils/functions";
 import { useEffect, useState } from "react";
 import "./basket.css";
 import CartItemCourse from "@/app/components/courses/cartItemCourse/CartItemCourse";
 import Button from "@/app/components/elemets/Button";
-import customFetch from "@/app/utils/custom_fetch";
 
 export interface CartItemInterface {
   id: number;

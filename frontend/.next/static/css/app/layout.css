@@ -33,7 +33,7 @@
 }
 
 .navbar-list-icons {
-  padding: 7px;
+  padding: 3px !important;
   background-color: rgb(248 248 248);
   border-radius: 50%;
   display: flex;
@@ -42,7 +42,7 @@
   width: 60px;
   height: 60px;
   font-size: 24px;
-  color: rgb(123, 134, 150) !important;
+  color: rgb(68, 68, 68) !important;
   opacity: 70%;
 }
 
@@ -92,6 +92,24 @@
 }
 
 
+@media screen and (min-width: 642px) {
+    .haburgerContainer {
+        display: block !important;
+    }    
+    .hamburger-list-inline {
+        display: none !important;
+    }
+}
+
+@media screen and (min-width: 770px) {
+    .haburgerContainer {
+        display: none !important;
+    }    
+    .hamburger-list-inline {
+        display: flex !important;
+    }
+}
+
 /*!*****************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./app/components/overlay/overlayComponent.css ***!
   \*****************************************************************************************************************************************************************************************************************************************************************************************/
@@ -115,6 +133,19 @@
     visibility: visible !important; 
   }
   
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./app/components/navbar/navbara-search/navbarSearch.css ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************/
+@media screen and (max-width: 924px) {
+    .desktop-navbar-search-responsive {
+        display: none !important;
+    }
+}
+@media screen and (min-width: 924px) {
+    .my-navbar-search-btn {
+        display: none;
+    }
+}
 /*!***************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./app/components/navbar/Navbarfeature/basket/basket.css ***!
   \***************************************************************************************************************************************************************************************************************************************************************************************************/

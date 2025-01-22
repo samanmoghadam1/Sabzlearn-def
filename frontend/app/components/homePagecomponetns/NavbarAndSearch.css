@@ -8,3 +8,107 @@
     background-position: 50%; 
     background-repeat: no-repeat;
 }
+
+
+@media screen and (min-width: 642px){
+    .home-search-input {
+        width: 600px !important ;
+    }
+    .all-fetcure-home-items {
+        width: 600px !important;
+    }
+    .home-page-title h5 { 
+        font-size: 30px !important;
+    }
+    .home-page-title p {
+        width: 100% !important; 
+        font-size: 17px !important;
+    }
+    .all-fetcure-home-items {
+        width: 700px !important; 
+        justify-content: space-around !important;
+
+    }
+    .all-fetcure-home-items div img {
+        width: 60px !important;
+        height: auto !important;
+    }
+    .all-fetcure-home-items div span {
+        font-size: 20px !important;
+    }
+}
+
+@media screen and (min-width: 770px){
+    .signup-or-profile-home-page { 
+        display: block !important;
+    }
+    .sign-up-in-home-btn {
+        display: flex !important;
+    }
+    .home-page-title h5 { 
+    font-weight: bold !important;
+     margin-top: 30px !important;   
+    } 
+    .navbar-and-search-container {
+        height: 600px !important;
+        clip-path: ellipse(391% 127% at 13% -29%) !important
+
+    }
+    .search-form-input-home-page {
+        margin-top: 60px !important ;
+    }
+    .home-search-input {
+        width: 450px !important ;
+        padding: 20px 19px 20px 10px !important;
+    }
+    .all-fetcure-home-items {
+        width: 580px !important;
+        margin: 20px auto 0px auto !important; 
+    }
+
+    .all-fetcure-home-items div img {
+        width: 75px !important;
+        height: auto !important;
+    }
+    .all-fetcure-home-items div span {
+        font-size: 20px !important;
+    }
+}
+
+@media screen and (min-width: 1027px) {
+    .navbar-and-search-container {
+        height: 100vh !important;
+        /* max-width: 1200px; */
+    }
+    .home-page-title h5 { 
+        font-size: 35px !important;
+    }
+    .home-page-title p { 
+        font-size: 18px !important;
+        font-weight: bold !important;
+        margin-top: 20px !important;
+    }
+    .navbar-and-search-layout-container {
+        max-width: 1200px;
+        margin: auto;
+    }
+    .all-fetcure-home-items {
+        width: 800px !important;
+         margin-top: 50px !important;
+    }
+    .all-fetcure-home-items div img {
+        width: 85px !important;
+        height:auto !important;
+    }
+    .all-fetcure-home-items div span {
+        font-size: 25px !important;
+    }
+    .home-search-input {
+        width: 700px !important;
+    }
+}
+
+.sign-up-in-home-btn:hover {
+    transition: all 0.1s ease-in-out;
+    background-color: var(--sabzlearn-color-darker) !important;
+}

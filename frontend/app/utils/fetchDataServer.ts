@@ -26,3 +26,4 @@ export async function fetchUserDataFromServer() {
   );
   return response
 }
+

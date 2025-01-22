@@ -30,7 +30,7 @@
 }
 
 .navbar-list-icons {
-  padding: 7px;
+  padding: 3px !important;
   background-color: rgb(248 248 248);
   border-radius: 50%;
   display: flex;
@@ -39,7 +39,7 @@
   width: 60px;
   height: 60px;
   font-size: 24px;
-  color: rgb(123, 134, 150) !important;
+  color: rgb(68, 68, 68) !important;
   opacity: 70%;
 }
 

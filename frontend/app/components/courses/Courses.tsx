@@ -30,7 +30,7 @@ const Course = ({
   user_id
 }: CourseProps) => {
   return (
-    <div dir="rtl" className="col-11 rounded-3 rounded-4 bg-white course mt-4">
+    <div dir="rtl" className="col-11 col-sm-5 col-md-4 col-lg-3 col-xl-3 mx-2 rounded-4 bg-white course mt-4">
       <div className="course-image-container position-relative">
         <Link href={`courses/${id}`}>
           <Image
@@ -72,9 +72,9 @@ const Course = ({
 
       <div className="course-text">
         <Link href={`courses/${id}`}>
-          <span className="h6 text-decoration-none course-title">{title}</span>
+          <span className="h6 text-decoration-none course-title">{short_text(title, 17)}</span>
         </Link>
-        <p className="mt-3 opacity-50 course-description">{short_text(description, 80)}</p>
+        <p className="mt-3 opacity-50 course-description">{short_text(description, 22)}</p>
 
         <div className="d-flex border-bottom justify-content-between pb-3">
           <span className="opacity-50">

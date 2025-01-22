@@ -1,0 +1,10 @@
+@media screen and (max-width: 924px) {
+    .desktop-navbar-search-responsive {
+        display: none !important;
+    }
+}
+@media screen and (min-width: 924px) {
+    .my-navbar-search-btn {
+        display: none;
+    }
+}

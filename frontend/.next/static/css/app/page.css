@@ -1,3 +1,121 @@
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./app/components/homePagecomponetns/NavbarAndSearch.css ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************/
+.navbar-and-search-icons {
+    font-size: 19px;
+}
+
+.navbar-and-search-container {
+    background-image: url('/static-images/laptop.webp');
+    background-size: cover;
+    background-position: 50%; 
+    background-repeat: no-repeat;
+}
+
+
+@media screen and (min-width: 642px){
+    .home-search-input {
+        width: 600px !important ;
+    }
+    .all-fetcure-home-items {
+        width: 600px !important;
+    }
+    .home-page-title h5 { 
+        font-size: 30px !important;
+    }
+    .home-page-title p {
+        width: 100% !important; 
+        font-size: 17px !important;
+    }
+    .all-fetcure-home-items {
+        width: 700px !important; 
+        justify-content: space-around !important;
+
+    }
+    .all-fetcure-home-items div img {
+        width: 60px !important;
+        height: auto !important;
+    }
+    .all-fetcure-home-items div span {
+        font-size: 20px !important;
+    }
+}
+
+@media screen and (min-width: 770px){
+    .signup-or-profile-home-page { 
+        display: block !important;
+    }
+    .sign-up-in-home-btn {
+        display: flex !important;
+    }
+    .home-page-title h5 { 
+    font-weight: bold !important;
+     margin-top: 30px !important;   
+    } 
+    .navbar-and-search-container {
+        height: 600px !important;
+        -webkit-clip-path: ellipse(391% 127% at 13% -29%) !important;
+                clip-path: ellipse(391% 127% at 13% -29%) !important
+
+    }
+    .search-form-input-home-page {
+        margin-top: 60px !important ;
+    }
+    .home-search-input {
+        width: 450px !important ;
+        padding: 20px 19px 20px 10px !important;
+    }
+    .all-fetcure-home-items {
+        width: 580px !important;
+        margin: 20px auto 0px auto !important; 
+    }
+
+    .all-fetcure-home-items div img {
+        width: 75px !important;
+        height: auto !important;
+    }
+    .all-fetcure-home-items div span {
+        font-size: 20px !important;
+    }
+}
+
+@media screen and (min-width: 1027px) {
+    .navbar-and-search-container {
+        height: 100vh !important;
+        /* max-width: 1200px; */
+    }
+    .home-page-title h5 { 
+        font-size: 35px !important;
+    }
+    .home-page-title p { 
+        font-size: 18px !important;
+        font-weight: bold !important;
+        margin-top: 20px !important;
+    }
+    .navbar-and-search-layout-container {
+        max-width: 1200px;
+        margin: auto;
+    }
+    .all-fetcure-home-items {
+        width: 800px !important;
+         margin-top: 50px !important;
+    }
+    .all-fetcure-home-items div img {
+        width: 85px !important;
+        height:auto !important;
+    }
+    .all-fetcure-home-items div span {
+        font-size: 25px !important;
+    }
+    .home-search-input {
+        width: 700px !important;
+    }
+}
+
+.sign-up-in-home-btn:hover {
+    transition: all 0.1s ease-in-out;
+    background-color: var(--sabzlearn-color-darker) !important;
+}
 /*!*******************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./app/components/courses/course.css ***!
   \*******************************************************************************************************************************************************************************************************************************************************************************/
@@ -5,7 +123,7 @@
   margin: 0px 10px;
   padding: 0px;
   padding-bottom: 6px;
-  margin: auto;
+  margin: auto ;
 }
 
 .couse-offer {
@@ -19,7 +137,6 @@
 }
 
 .course-image {
-  border-radius: 10px 10px 0px 0px;
 }
 .course-text {
   padding: 15px 15px 0px 15px !important;
@@ -31,19 +148,6 @@
 
 .course-description {
   font-size: 14px;
-}
-/*!***************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./app/components/homePagecomponetns/NavbarAndSearch.css ***!
-  \***************************************************************************************************************************************************************************************************************************************************************************************************/
-.navbar-and-search-icons {
-    font-size: 19px;
-}
-
-.navbar-and-search-container {
-    background-image: url('/static-images/laptop.webp');
-    background-size: cover;
-    background-position: 50%; 
-    background-repeat: no-repeat;
 }
 /*!*********************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./app/components/navbar/NavbarList/NavbarList.css ***!
@@ -80,7 +184,7 @@
 }
 
 .navbar-list-icons {
-  padding: 7px;
+  padding: 3px !important;
   background-color: rgb(248 248 248);
   border-radius: 50%;
   display: flex;
@@ -89,7 +193,7 @@
   width: 60px;
   height: 60px;
   font-size: 24px;
-  color: rgb(123, 134, 150) !important;
+  color: rgb(68, 68, 68) !important;
   opacity: 70%;
 }
 
@@ -138,6 +242,24 @@
     height: 54px;
 }
 
+
+@media screen and (min-width: 642px) {
+    .haburgerContainer {
+        display: block !important;
+    }    
+    .hamburger-list-inline {
+        display: none !important;
+    }
+}
+
+@media screen and (min-width: 770px) {
+    .haburgerContainer {
+        display: none !important;
+    }    
+    .hamburger-list-inline {
+        display: flex !important;
+    }
+}
 
 /*!*****************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./app/components/overlay/overlayComponent.css ***!
@@ -291,5 +413,46 @@
 
 .sabzleaen-btn:hover {
     background-color: var(--sabzlearn-color-darker);
+}
+
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./app/components/navbar/Navbarfeature/profile/Profile.css ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************/
+.Basket-open{
+    z-index: 1000 !important;
+    
+}
+.basket-icon-navbar{
+    z-index: 9999 !important;
+}
+
+.Basket-open ol {
+    padding: 20px;
+    list-style: none;
+    padding-bottom: 0;
+}
+.Basket-open ol li{
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.Basket-open ol li:hover{
+    background-color: rgba(83, 224, 88, .6); 
+}
+.Basket-open ol .logout-li-profile:hover{
+    background-color: rgba(211, 46, 46, 1);
+    color: white;
+}
+
+.Basket-open ol li span {
+    margin-right: 10px; 
+    font-size: 20px; 
+
+}
+
+.Basket-open ol li i{
+    font-size: 19px;
 }
 

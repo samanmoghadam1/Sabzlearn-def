@@ -18,17 +18,10 @@
       "static/css/app/courses/page.css",
       "static/chunks/app/courses/page.js"
     ],
-    "/courses/search/[search]/page": [
+    "/_not-found/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/courses/search/[search]/page.css",
-      "static/chunks/app/courses/search/[search]/page.js"
-    ],
-    "/courses/[id]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/courses/[id]/page.css",
-      "static/chunks/app/courses/[id]/page.js"
+      "static/chunks/app/_not-found/page.js"
     ]
   }
 }

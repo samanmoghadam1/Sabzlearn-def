@@ -6,3 +6,21 @@
     height: 54px;
 }
 
+
+@media screen and (min-width: 642px) {
+    .haburgerContainer {
+        display: block !important;
+    }    
+    .hamburger-list-inline {
+        display: none !important;
+    }
+}
+
+@media screen and (min-width: 770px) {
+    .haburgerContainer {
+        display: none !important;
+    }    
+    .hamburger-list-inline {
+        display: flex !important;
+    }
+}

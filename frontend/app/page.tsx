@@ -6,7 +6,7 @@ import SoftskillIcon from "./components/icons/softskillIcon";
 import Link from "next/link";
 import ArrowLeftIcon from "./components/icons/arrowLeftIcon";
 import NavbarAndSearch from "./components/homePagecomponetns/NavbarAndSearch";
-
+import AllCourses from "@/app/components/courses/AllCourse";
 interface CourseItemInterface {
   category: number;
   created_at: string;
@@ -36,7 +36,6 @@ const HomePage = async () => {
   } catch (error) {
     console.log(error);
   }
-  
 
   return (
     <>
@@ -44,44 +43,25 @@ const HomePage = async () => {
 
       <div
         style={{ marginTop: "90px" }}
-        className="last-courses container  mb-5"
+        className="last-courses container-fluid  mb-5"
       >
         <h2 className="fw-bold fw-bold text-center">آخرین دوره های سبزلرن</h2>
         <p className="opacity-75 text-center">سکوی پرتاب شما به سمت موفقیت</p>
         <Link className="text-success d-block text-center" href="/courses">
-              مشاهده همه دوره ها
-              <ArrowLeftIcon width="20px" />
-            </Link>
-
-        <div className="row ">
-          {courses.map((item: CourseItemInterface, index: number) => {
-            return (
-              <div key={index}>
-                <Course
-                  key={index}
-                  teacher={item.user_data.name}
-                  point={4.2}
-                  title={item.name}
-                  description={item.description}
-                  offer={item.discount}
-                  image={item.image}
-                  price={120000}
-                  studentsNumber={1000}
-                  id={item.id}
-                  user_id={item.user_data.id}
-                />
-              </div>
-            );
-          })}
-        </div>
-
+          مشاهده همه دوره ها
+          <ArrowLeftIcon width="20px" />
+        </Link>
+        <AllCourses arr={courses} />
         <div className="popular-course text-center mt-5 ">
           <h2 className="fw-bold">نقشه راه ها </h2>
           <p className="opacity-50">نقشه های راه برای شروع اصولی یادگیری</p>
 
-          <div id="road-maps" className="road-maps row ">
+          <div
+            id="road-maps"
+            className="road-maps row d-flex justify-content-center"
+          >
             <div
-              className="mt-4 col-5 p-3 rounded-4 m-auto text-white"
+              className="mt-4 col-5 col-md-3 col-lg-3 col-lg-2 p-3 rounded-4 mx-2 m-auto text-white"
               style={{ background: "linear-gradient(97deg, #30C5E4, #28E55D)" }}
             >
               <SecurityIcon />
@@ -90,7 +70,7 @@ const HomePage = async () => {
             </div>
 
             <div
-              className="mt-4 col-5 p-3 rounded-4 m-auto text-white"
+              className="mt-4 col-5 col-md-3 col-lg-3 col-lg-2 p-3 rounded-4 mx-2 m-auto text-white"
               style={{
                 background: "linear-gradient(97deg, #FFB535, #F2295B)",
               }}
@@ -101,7 +81,7 @@ const HomePage = async () => {
             </div>
 
             <div
-              className="mt-4 col-5 p-3 rounded-4 m-auto text-white"
+              className="mt-4 col-5 col-md-3 col-lg-3 col-lg-2 p-3 rounded-4 mx-2 m-auto text-white"
               style={{
                 background: "linear-gradient(97deg, #2E9EFF, #9C33F7)",
               }}
@@ -112,7 +92,7 @@ const HomePage = async () => {
             </div>
 
             <div
-              className="mt-4 col-5 p-3 rounded-4 m-auto text-white"
+              className="mt-4 col-5 col-md-3 col-lg-3 col-lg-2 p-3 rounded-4 mx-2 m-auto text-white"
               style={{
                 background: "linear-gradient(97deg, #880175, #ff3571)",
               }}
@@ -131,25 +111,7 @@ const HomePage = async () => {
               <ArrowLeftIcon width="20px" />
             </Link>
 
-            {courses.map((item: CourseItemInterface, index: number) => {
-              return (
-                <>
-                  <Course
-                    key={index}
-                    teacher={item.user_data.name}
-                    point={4.2}
-                    title={item.name}
-                    description={item.description}
-                    offer={item.discount}
-                    image={item.image}
-                    price={120000}
-                    studentsNumber={1000}
-                    id={item.id}
-                    user_id={item.user_data.id}
-                  />
-                </>
-              );
-            })}
+            <AllCourses arr={courses} />
           </div>
 
           {/* end of popular-course */}
