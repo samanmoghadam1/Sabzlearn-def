@@ -54,8 +54,9 @@
     } 
     .navbar-and-search-container {
         height: 600px !important;
-        -webkit-clip-path: ellipse(391% 127% at 13% -29%) !important;
-                clip-path: ellipse(391% 127% at 13% -29%) !important
+        /* new-laptop.webp */
+        background-image: url('/static-images/new-laptop.webp ') !important;
+        background-color: transparent !important;
 
     }
     .search-form-input-home-page {

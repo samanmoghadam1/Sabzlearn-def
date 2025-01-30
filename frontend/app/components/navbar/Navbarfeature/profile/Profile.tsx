@@ -9,7 +9,6 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
-
 interface userDataInterface {
   email: string;
   name: string;
@@ -17,7 +16,13 @@ interface userDataInterface {
   phone_number: number;
 }
 
-const ProfileNavbar = ({ containerStyle, iconColor}: { containerStyle?: {backgroundColor?: string}, iconColor?: {color?: string} }) => {
+const ProfileNavbar = ({
+  containerStyle,
+  iconColor,
+}: {
+  containerStyle?: { backgroundColor?: string };
+  iconColor?: { color?: string };
+}) => {
   const [user, setUser] = useState<userDataInterface>();
   const [open, setOpen] = useState(false);
   const [token, setToken] = useState<string | null>("");
@@ -99,22 +104,27 @@ const ProfileNavbar = ({ containerStyle, iconColor}: { containerStyle?: {backgro
                 </li>
               </Link>
               {/*  */}
-              <li>
-                <i className="fa-regular fa-envelope"></i>
+              <Link href="/my-account/tickets">
+                <li onClick={() => setOpen(false)}>
+                  <i className="fa-regular fa-envelope"></i>
 
-                <span>تیکت ها</span>
-              </li>
+                  <span>تیکت ها</span>
+                </li>
+              </Link>
               {/*  */}
-              <li
-                style={{
-                  borderBottom: "1px solid rgb(225, 221, 221)",
-                  paddingBottom: "19px",
-                }}
-              >
-                <i className="fa-regular fa-user"></i>
+              <Link href={"my-account/edit-account"}>
+                <li
+                 onClick={() => setOpen(false)}
+                  style={{
+                    borderBottom: "1px solid rgb(225, 221, 221)",
+                    paddingBottom: "19px",
+                  }}
+                >
+                  <i className="fa-regular fa-user"></i>
 
-                <span>جزيیات حساب</span>
-              </li>
+                  <span>جزيیات حساب</span>
+                </li>
+              </Link>
               <li className="logout-li-profile">
                 <i className="fa-solid fa-power-off"></i>
 

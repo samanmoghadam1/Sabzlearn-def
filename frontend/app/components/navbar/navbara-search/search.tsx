@@ -21,7 +21,7 @@ const NavbarSearch = () => {
         </button>
       </div>
 
-      <div className={`${open ? 'z-3': '' } position-relative`}>
+      <div className={`${open ? 'z-3': '' } position-relative `}>
         <button
           onClick={() => {
             setOpen(!open);

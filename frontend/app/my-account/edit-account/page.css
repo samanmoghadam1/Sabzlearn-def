@@ -1,0 +1,53 @@
+.input-in-edit-account-page-container {
+    color: rgb(100 116 139);
+}
+
+.input-in-edit-account-page-container input {
+    width: 90%;
+    outline: none;
+    font-size: 14px;
+    color: rgb(86, 99, 115);
+}
+
+.input-in-edit-account-page-container i {
+    width: 10%;
+    font-size: 20px;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+
+.edit-account-custom-button {
+    color: rgb(34, 197, 94); 
+    border: 1px solid rgb(34, 197, 94);
+    font-weight: bold;
+    font-size: 14px;
+    text-align: start;
+}
+
+
+@media screen and (max-width: 991px) {
+    .edit-page-container {
+        margin: 0px !important;
+    }
+    .input-container-in-edit-page input{
+        width: 90%;
+    } 
+    .the-submit-edit-page { 
+        width: 100% !important;
+        margin-top: 20px !important; 
+        margin-left: 0%;
+        padding: 20px;
+    }
+    .edit-account-custom-button {
+        width: 100% !important;
+        margin-top: 20px !important; 
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .edit-page-container {
+        padding: 0px !important;
+        margin: 0px !important;
+    } 
+}

@@ -37,7 +37,24 @@
 }
 .search-course-courses-form button {
     color: rgb(140, 141, 141);
+    width: 10%; 
 
+}
+
+.fiters-contaier-in-courses {
+    width: 85%;
+}
+
+@media screen and (max-width: 525px) {
+    .fiters-contaier-in-courses {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 473px) {
+    .fiters-contaier-in-courses {
+        font-size: 10px;
+    }
 }
 /*!*****************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./app/components/features/courseFilters/CourseFilters.css ***!

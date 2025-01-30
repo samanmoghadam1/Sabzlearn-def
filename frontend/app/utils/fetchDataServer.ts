@@ -14,7 +14,8 @@ export interface UserInterface {
   name: string, 
   phone_number: string, 
   role: number, 
-  avatar: string
+  avatar: string, 
+  email: string
 } 
 export async function fetchUserDataFromServer() {
   

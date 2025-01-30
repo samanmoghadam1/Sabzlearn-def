@@ -70,7 +70,7 @@ const CourseFilters = ({
       <div
         onClick={() => setOpen(true)}
         role="button"
-        className="bg-white p-3 px-5 rounded-5 w-50 text-center"
+        className="bg-white p-3 px-5 rounded-2 w-50 text-center"
       >
         <i className="fa-solid fa-filter"></i>
         <span className="mx-3">فیلتر</span>

@@ -76,11 +76,11 @@ const CoursesPage = () => {
           />
           <button
             type="submit"
-            className="p-4 btn-outline-none border-0 bg-white rounded-start-3"
+            className="p-4 btn-outline-none border-0 bg-white rounded-start-3 "
           >
             <i className="fa-solid fa-magnifying-glass"></i>
           </button>
-          <div className="d-flex justify-content-center gap-3 mt-3 px-4">
+          <div  className="d-flex justify-content-center gap-3 mt-3 m-auto fiters-contaier-in-courses ">
             <CourseFilters
               courses={courses}
               setCourses={setCourses}

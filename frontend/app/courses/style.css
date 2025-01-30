@@ -11,5 +11,22 @@
 }
 .search-course-courses-form button {
     color: rgb(140, 141, 141);
+    width: 10%; 
 
+}
+
+.fiters-contaier-in-courses {
+    width: 85%;
+}
+
+@media screen and (max-width: 525px) {
+    .fiters-contaier-in-courses {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 473px) {
+    .fiters-contaier-in-courses {
+        font-size: 10px;
+    }
 }

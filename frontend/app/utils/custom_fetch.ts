@@ -56,14 +56,20 @@ async function customFetch<T>(
           });
           return retryResponse.json() as Promise<T>;
         } else {
-          window.location.href = "/login";
+          if (window) {
+            window.location.href = "/login";
+          }
         }
       } catch (error) {
         console.error("Error refreshing token: ", error);
-        window.location.href = "/login";
+        if (window) {
+          window.location.href = "/login";
+        }
       }
     } else {
-      window.location.href = "/login";
+      if (window) {
+        window.location.href = "/login";
+      }
     }
   }
   if (!response.ok) {

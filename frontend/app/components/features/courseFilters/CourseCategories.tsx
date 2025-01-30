@@ -42,7 +42,7 @@ const CourseCategories = ({
           setOpen(true);
         }}
         role="button"
-        className="bg-white p-3 px-5 rounded-5 w-50"
+        className="bg-white py-3  px-5 rounded-2 w-50"
       >
         <i className="fa-solid fa-sort"></i>
         <span className="mx-2">همه دوره ها</span>

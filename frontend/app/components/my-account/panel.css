@@ -1,0 +1,14 @@
+.user-panel-sidebar-container {
+}
+
+.user-info-in-user-panel {
+    background-color:rgb(14, 165, 233) ;
+    height: 150px;
+}
+
+.user-image-in-user-panel {
+    text-align: center;
+    position: absolute; 
+    top: 50%;
+    left: 25%; 
+}

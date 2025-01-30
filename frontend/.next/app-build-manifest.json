@@ -6,6 +6,30 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
+    "/my-account/edit-account/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/my-account/edit-account/page.css",
+      "static/chunks/app/my-account/edit-account/page.js"
+    ],
+    "/my-account/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/my-account/page.css",
+      "static/chunks/app/my-account/page.js"
+    ],
+    "/my-account/tickets/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/my-account/tickets/page.css",
+      "static/chunks/app/my-account/tickets/page.js"
+    ],
+    "/my-account/courses/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/my-account/courses/page.css",
+      "static/chunks/app/my-account/courses/page.js"
+    ],
     "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -17,11 +41,6 @@
       "static/chunks/main-app.js",
       "static/css/app/courses/page.css",
       "static/chunks/app/courses/page.js"
-    ],
-    "/_not-found/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/_not-found/page.js"
     ]
   }
 }

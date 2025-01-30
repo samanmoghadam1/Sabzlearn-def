@@ -5,6 +5,7 @@ import customFetch from "@/app/utils/custom_fetch";
 import { short_text, toPersianNumber } from "@/app/utils/functions";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import ClientUserPanel from "@/app/components/my-account/clientPanel";
 
 // http://127.0.0.1:8000/orders/purchased_courses/list/
 
@@ -13,7 +14,7 @@ interface courseInterface {
 }
 const accoutCourses = () => {
   const [courses, setCourses] = useState<courseInterface[]>([]);
-
+// col-md-4 col-lg-3 col-xl-2
   useEffect(() => {
     async function fetchData() {
       const response: [] = await customFetch(
@@ -28,7 +29,9 @@ const accoutCourses = () => {
     fetchData();
   }, []);
   return (
-    <div>
+    <div className="row">
+      <ClientUserPanel />
+    <div className="col-md-8 col-lg-9 col-xl-10">
       <ProfileTitleComponent className="mx-3" title="دوره های من" />
       <div className="row  gap-1 d-flex justify-content-center">
         {courses.map(
@@ -125,6 +128,7 @@ const accoutCourses = () => {
           }
         )}
       </div>
+    </div>
     </div>
   );
 };

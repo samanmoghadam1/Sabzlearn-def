@@ -1,0 +1,10 @@
+@media screen and (max-width: 991px) {
+    .ticket_status_items div {
+        width: 100% !important;
+    }
+}
+@media screen and (min-width: 1300px) {
+    .ticket_status_items div {
+        width: 250px !important; 
+    }
+}

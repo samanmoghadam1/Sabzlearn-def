@@ -23,8 +23,8 @@ const Button = ({
 }) => {
   return !link ? (
     <button
-      style={style}
-      className={`d-block w-100 border-0 p-2 rounded-2 text-white ${className}  sabzleaen-btn`}
+      style={{...style}}
+      className={`${className} d-block  border-0 p-2 rounded-2 text-white  sabzleaen-btn`}
     >
       {title}
     </button>

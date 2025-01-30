@@ -2,6 +2,7 @@ import { CartItemInterface } from "../components/navbar/Navbarfeature/basket/Bas
 import customFetch from "./custom_fetch";
 import customServerFetch from "./custom_fetch_server";
 import Cookies from "js-cookie";
+import { UserInterface } from "./fetchDataServer";
 
 export async function fetchNavbarCategories() {
   try {
@@ -49,14 +50,15 @@ export async function fetchCourses() {
 }
 
 export async function fetchUserData() {
-  if (typeof window !== "undefined") {
-    return await customFetch(
+  
+    const response: UserInterface = await customFetch(
       "http://127.0.0.1:8000/api/user-info/",
       "GET",
       undefined
     );
-  }
-  return null;
+    return response; 
+
+
 }
 
 export function getToken() {
