@@ -187,7 +187,7 @@ const BasketNavbar = ({ btnStyle }: { btnStyle?: {} }) => {
   
 
   return (
-    <div className="position-relative">
+    <div className="position-relative ">
       <button
         style={btnStyle}
         onClick={() => setOpen(!open)}

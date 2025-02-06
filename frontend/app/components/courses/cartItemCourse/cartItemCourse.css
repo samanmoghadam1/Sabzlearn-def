@@ -1,44 +1,48 @@
 /* cartItemCourse.css */
 
-.cart-item-course-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 17px;
-    direction: rtl;
-  }
-  
-  .cart-item-course-image {
-    border-radius: 0.75rem;
-  }
-  
-  .cart-item-course-details {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    text-align: start;
-  }
-  
-  .cart-item-course-title {
-    font-size: 16px;
-    text-align: start;
-  }
-  
-  .cart-item-course-price {
-    margin-left: auto;
-    font-size: 1rem;
-    opacity: 0.75;
-  }
-  
-  .cart-item-course-trash {
-    font-size: 1rem;
-  }
+.coursein-cart-page-component {
+  font-size: 13px;
+}
 
-  .cart-item-course-trash {
-    color: rgba(156 163 175 );
-    transition: all 0.1s ease-in-out;
+.trash-container-in-cartItem-page-component :hover{
+  cursor: pointer;
+  color: red;
+  opacity: 1 !important;
+}
+
+@media screen and (max-width: 790px) {
+  .coursein-cart-page-component h6{
+    font-size: 14px !important;
+    justify-content: start !important;
+    margin-right: 12px !important;
   }
-  .cart-item-course-trash:hover {
-    color: rgb(214, 24, 24);
+}
+
+@media screen and (max-width: 576px) {
+  .course-image-contaoner-in-cart-page-component  {
+    margin: auto !important;
+    align-items: center !important; 
   }
-  
+  .course-image-in-container {
+    width: 60%;
+    padding: 0px !important;
+    margin: auto !important;
+  }
+  .course-image-contaoner-in-cart-page-component img{
+    width: 100% !important;
+    height: auto ;
+  }
+  .cart-item-component-container {
+    margin: auto !important; 
+    text-align: center !important; 
+  }
+  .coursein-cart-page-component h6{ 
+    margin-top : 8px !important ;
+    margin-bottom : 18px !important ;
+    text-align: start !important;
+  }
+  .description-cart-item-component {
+    max-width: 75% !important;
+    margin: auto !important;
+  }
+}

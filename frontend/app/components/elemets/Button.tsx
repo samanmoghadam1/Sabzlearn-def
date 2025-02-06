@@ -15,7 +15,7 @@ const Button = ({
   className?: string;
   style?: {};
   link?: string;
-  onclick?: string;
+  onclick?: ()=>void;
   data?: {};
   open?: boolean;
   setOpen?: (n: boolean) => void;
@@ -23,8 +23,9 @@ const Button = ({
 }) => {
   return !link ? (
     <button
+    onClick={onclick}
       style={{...style}}
-      className={`${className} d-block  border-0 p-2 rounded-2 text-white  sabzleaen-btn`}
+      className={`${className} d-block  border-0 p-2 rounded-2 text-white sabzleaen-btn`}
     >
       {title}
     </button>

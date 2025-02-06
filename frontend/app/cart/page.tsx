@@ -7,6 +7,7 @@ import CartInPage from "../components/courses/cartItemCourse/cartInCartPage/Cart
 import Link from "next/link";
 import customFetch from "../utils/custom_fetch";
 import { useRouter } from "next/navigation";
+import "./page.css";
 
 const Cart = () => {
   const router = useRouter();
@@ -47,8 +48,8 @@ const Cart = () => {
   }
 
   return (
-    <div className="my-4 m-4">
-      <div>
+    <div className="my-4 m-4 row p-xl-0 gap-4 gap-sm-4 gap-md-0 cart-page-container">
+      <div className="col-md-8">
         <div
           style={{ backgroundColor: "var(--sabzlearn-color)" }}
           className="product-basket-nav d-flex gap-3 align-items-center text-white p-3 rounded-top-4"
@@ -61,7 +62,7 @@ const Cart = () => {
           <div className="row">
             {courses.map((item, index) => {
               return (
-                <div className="col-12 col-md-6 col col-lg-4" key={index}>
+                <div className="col-12 " key={index}>
                   <CartInPage
                     description={item.course_data.description}
                     id={item.course_data.id}
@@ -74,7 +75,28 @@ const Cart = () => {
                     title={item.course_data.name}
                     user_id={item.course_data.user_data.id}
                     key={index}
-                    courses={courses} 
+                    courses={courses}
+                    setCourses={setCourses}
+                  />
+                </div>
+              );
+            })}
+            {courses.map((item, index) => {
+              return (
+                <div className="col-12 " key={index}>
+                  <CartInPage
+                    description={item.course_data.description}
+                    id={item.course_data.id}
+                    image={item.course_data.image}
+                    offer={item.course_data.offer}
+                    point={item.course_data.point}
+                    price={parseInt(item.course_data.price)}
+                    studentsNumber={28}
+                    teacher={item.course_data.user_data.name}
+                    title={item.course_data.name}
+                    user_id={item.course_data.user_data.id}
+                    key={index}
+                    courses={courses}
                     setCourses={setCourses}
                   />
                 </div>
@@ -84,7 +106,7 @@ const Cart = () => {
         </div>
       </div>
 
-      <div className="bg-white rounded-4 shadow-lg">
+      <div className="bg-white rounded-4 shadow-lg col-md-4" style={{maxHeight: "387px"}} >
         <div
           style={{ backgroundColor: "var(--sabzlearn-color)" }}
           className="mt-4 product-basket-nav d-flex gap-3 align-items-center text-white p-3 rounded-top-4"

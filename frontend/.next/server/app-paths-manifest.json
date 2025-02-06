@@ -1,7 +1,5 @@
 {
-  "/my-account/page": "app/my-account/page.js",
-  "/my-account/tickets/page": "app/my-account/tickets/page.js",
-  "/my-account/courses/page": "app/my-account/courses/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
   "/page": "app/page.js",
   "/courses/page": "app/courses/page.js"
 }

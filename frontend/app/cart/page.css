@@ -1,0 +1,8 @@
+@media screen and (min-width: 1282px) {
+ .cart-page-container {
+    margin: auto !important;
+    margin-top: 50px !important;
+    margin-bottom: 50px !important;
+    max-width: 1282px !important;
+ }   
+}

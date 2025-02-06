@@ -39,7 +39,7 @@ const ProfileNavbar = ({
 
   const router = useRouter();
   return (
-    <div className={open ? "position-relative" : ""}>
+    <div className={open ? "position-relative" : "d-none d-md-block"}>
       {token ? (
         <button
           style={containerStyle}

@@ -2,28 +2,12 @@
   "node": {
     "7f80372f5509db93ec2d22ba9dd19f30c6f49d3d28": {
       "workers": {
-        "app/my-account/edit-account/page": {
-          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22A%3A%5C%5Cpractice%5C%5CSabzlearn-def%5C%5Cfrontend%5C%5Capp%5C%5Cutils%5C%5Ccustom_fetch_server.ts%22%2C%5B%5B%227f80372f5509db93ec2d22ba9dd19f30c6f49d3d28%22%2C%22default%22%5D%5D%5D%5D&__client_imported__=true!",
-          "async": false
-        },
-        "app/my-account/page": {
+        "app/page": {
           "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22A%3A%5C%5Cpractice%5C%5CSabzlearn-def%5C%5Cfrontend%5C%5Capp%5C%5Cutils%5C%5Ccustom_fetch_server.ts%22%2C%5B%5B%227f80372f5509db93ec2d22ba9dd19f30c6f49d3d28%22%2C%22default%22%5D%5D%5D%5D&__client_imported__=!",
-          "async": false
-        },
-        "app/my-account/tickets/page": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22A%3A%5C%5Cpractice%5C%5CSabzlearn-def%5C%5Cfrontend%5C%5Capp%5C%5Cutils%5C%5Ccustom_fetch_server.ts%22%2C%5B%5B%227f80372f5509db93ec2d22ba9dd19f30c6f49d3d28%22%2C%22default%22%5D%5D%5D%5D&__client_imported__=!",
-          "async": false
-        },
-        "app/my-account/courses/page": {
-          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22A%3A%5C%5Cpractice%5C%5CSabzlearn-def%5C%5Cfrontend%5C%5Capp%5C%5Cutils%5C%5Ccustom_fetch_server.ts%22%2C%5B%5B%227f80372f5509db93ec2d22ba9dd19f30c6f49d3d28%22%2C%22default%22%5D%5D%5D%5D&__client_imported__=true!",
           "async": false
         },
         "app/_not-found/page": {
           "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22A%3A%5C%5Cpractice%5C%5CSabzlearn-def%5C%5Cfrontend%5C%5Capp%5C%5Cutils%5C%5Ccustom_fetch_server.ts%22%2C%5B%5B%227f80372f5509db93ec2d22ba9dd19f30c6f49d3d28%22%2C%22default%22%5D%5D%5D%5D&__client_imported__=true!",
-          "async": false
-        },
-        "app/page": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22A%3A%5C%5Cpractice%5C%5CSabzlearn-def%5C%5Cfrontend%5C%5Capp%5C%5Cutils%5C%5Ccustom_fetch_server.ts%22%2C%5B%5B%227f80372f5509db93ec2d22ba9dd19f30c6f49d3d28%22%2C%22default%22%5D%5D%5D%5D&__client_imported__=!",
           "async": false
         },
         "app/courses/page": {
@@ -32,12 +16,8 @@
         }
       },
       "layer": {
-        "app/my-account/edit-account/page": "action-browser",
-        "app/my-account/page": "rsc",
-        "app/my-account/tickets/page": "rsc",
-        "app/my-account/courses/page": "action-browser",
-        "app/_not-found/page": "action-browser",
         "app/page": "rsc",
+        "app/_not-found/page": "action-browser",
         "app/courses/page": "action-browser"
       }
     }

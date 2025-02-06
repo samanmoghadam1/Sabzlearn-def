@@ -2,6 +2,7 @@
 
 
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation"; 
 
 type FetchOption = Omit<RequestInit, "headers"> & {
   headers?: Record<string, string>;
@@ -63,9 +64,11 @@ async function customServerFetch<T>(
         }
       } catch (error) {
         console.error("Error refreshing token: ", error);
+        
         throw new Error("Authentication failed. Please log in again.");
       }
     } else {
+      redirect('/login'); 
       throw new Error("No refresh token available. Please log in again.");
     }
   }
