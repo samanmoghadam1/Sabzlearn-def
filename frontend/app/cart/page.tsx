@@ -36,15 +36,23 @@ const Cart = () => {
     setTotalPrice(response);
   }, [courses]);
 
-  function handleSubmit() {
+  async function handleSubmit() {
     // 'id', 'user', 'order', 'price', 'payment_date', 'is_successful'
     const order_id: number = courses[0].order;
-    customFetch("http://127.0.0.1:8000/orders/add/payemnts/", "POST", {
-      order: order_id,
-      price: totalPrice,
-      is_successful: true,
-    });
-    window.location.href = "/cart";
+    try {
+      const response = await customFetch(
+        "http://127.0.0.1:8000/orders/add/payemnts/",
+        "POST",
+        {
+          order: order_id,
+          price: totalPrice,
+          is_successful: true,
+        }
+      );
+      window.location.href = "/cart";
+    } catch (error) {
+      console.log("error: ", error);
+    }
   }
 
   return (
@@ -62,28 +70,7 @@ const Cart = () => {
           <div className="row">
             {courses.map((item, index) => {
               return (
-                <div className="col-12 " key={index}>
-                  <CartInPage
-                    description={item.course_data.description}
-                    id={item.course_data.id}
-                    image={item.course_data.image}
-                    offer={item.course_data.offer}
-                    point={item.course_data.point}
-                    price={parseInt(item.course_data.price)}
-                    studentsNumber={28}
-                    teacher={item.course_data.user_data.name}
-                    title={item.course_data.name}
-                    user_id={item.course_data.user_data.id}
-                    key={index}
-                    courses={courses}
-                    setCourses={setCourses}
-                  />
-                </div>
-              );
-            })}
-            {courses.map((item, index) => {
-              return (
-                <div className="col-12 " key={index}>
+                <div className="col-12 mt-3" key={index}>
                   <CartInPage
                     description={item.course_data.description}
                     id={item.course_data.id}
@@ -106,7 +93,10 @@ const Cart = () => {
         </div>
       </div>
 
-      <div className="bg-white rounded-4 shadow-lg col-md-4" style={{maxHeight: "387px"}} >
+      <div
+        className="bg-white rounded-4 shadow-lg col-md-4"
+        style={{ maxHeight: "387px" }}
+      >
         <div
           style={{ backgroundColor: "var(--sabzlearn-color)" }}
           className="mt-4 product-basket-nav d-flex gap-3 align-items-center text-white p-3 rounded-top-4"
@@ -153,7 +143,7 @@ const Cart = () => {
               </Link>
             </span>
           </div>
-          {/* <Button style={{fontSize: "15px"}} disable={true} className="mt-3 rounded-3 p-2" title="تکمیل خرید"/> */}
+
           <button
             disabled={!isChecked}
             onClick={handleSubmit}

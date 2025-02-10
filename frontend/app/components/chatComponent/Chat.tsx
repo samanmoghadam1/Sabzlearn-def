@@ -1,12 +1,28 @@
-import Link from "next/link";
+"use client";
+import { useState } from "react";
+import OnlineChatComponent from "./OnlineChat/onlineChat";
 
 const ChatComponent = () => {
+  const [open, setOpen] = useState<boolean>(false);
+
+  const handleClick = () => {
+    setOpen(!open);
+  };
+
   return (
-    <Link href={"/"}>
+    <div
+      style={{
+        left: "0",
+        bottom: "0",
+      }}
+      className="position-fixed z-3"
+    >
+      <div className="position-relative">{open && <OnlineChatComponent open={open} setOpen={setOpen} />}</div>
+
       <div
-        className="text-white d-flex justify-content-center align-items-center position-fixed z-3 bottom-0 m-3 p-3 rounded-circle"
+        onClick={handleClick}
+        className="text-white d-flex justify-content-center align-items-center  z-3  m-3 p-3 rounded-circle"
         style={{
-          left: "0",
           width: "60px",
           height: "60px",
           fontSize: "24px",
@@ -14,9 +30,9 @@ const ChatComponent = () => {
           cursor: "pointer",
         }}
       >
-        <i className="fa-solid fa-headset"></i>
+        <i className={`fa-solid ${!open ? "fa-headset" : "fa-xmark"}`}></i>
       </div>
-    </Link>
+    </div>
   );
 };
 

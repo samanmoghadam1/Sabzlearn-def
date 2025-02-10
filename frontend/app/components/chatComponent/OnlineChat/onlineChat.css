@@ -1,0 +1,99 @@
+
+.online-chat-container{
+    background-color: rgb(255, 255, 255);
+    
+    width: 330px; 
+    position: absolute;
+    bottom: 100%;
+    left: 25px; 
+    border-radius: 5px;
+}
+
+.online-chat-component-top {
+    background-image: url('/static-images/texture-1.png');
+    background-repeat: no-repeat; 
+    background-position: center; 
+    background-size: cover;
+}
+
+.online-chat-component-header { 
+    background-color: rgba(2, 139, 229, 0.8);
+    border-radius: 5px 5px 0px 0px;
+    padding: 18px;
+}
+.online-chat-component-header p { 
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 13px;
+    text-align: justify; 
+    text-align: center; 
+
+}
+.online-chat-component-header div img { 
+    width: 45px;
+    height: 45px; 
+    border-radius: 50%;
+}
+
+.online-chat-component-main {
+    height: 270px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.online-chat-component-input {
+    border-top: 1px solid #dee5ec;
+}
+.online-chat-component-input button{
+    flex: 1; 
+    border: 0px; 
+    background-color: transparent;
+    padding: 15px; 
+}
+.online-chat-component-input input{
+    flex: 7;
+    border: 0px; 
+    outline: none;
+    padding: 15px;
+    font-size: 12px;
+    color: #585a5c;
+}
+.x-mark-in-responsive-online-chat { 
+    display: none;
+}
+
+
+@media screen and (max-width: 400px) {
+    .online-chat-container { 
+        width: 100vw !important; 
+        height: 100vh !important; 
+        position: fixed !important;
+        z-index: 100000 !important;
+        top: 0; 
+        left: 0; 
+    }
+    .online-chat-component-main { 
+        height: 60vh;
+    }
+    .online-chat-component-header { 
+        height: 30vh; 
+        display: flex;
+        flex-direction: column;
+        align-items: center !important;
+    }
+    .online-chat-component-input { 
+        height: 10vh !important;
+    } 
+    .x-mark-in-responsive-online-chat { 
+        left: 10px; 
+        width: 25px; 
+        height: 25px;
+        padding: 5px;
+        border-radius: 50%;
+        display: flex !important;
+        justify-content: center;
+        text-align: center !important; 
+        cursor: pointer;
+        background-color: #585a5c;
+    }
+
+}

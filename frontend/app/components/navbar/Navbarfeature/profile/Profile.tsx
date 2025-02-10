@@ -114,7 +114,7 @@ const ProfileNavbar = ({
               {/*  */}
               <Link href={"my-account/edit-account"}>
                 <li
-                 onClick={() => setOpen(false)}
+                  onClick={() => setOpen(false)}
                   style={{
                     borderBottom: "1px solid rgb(225, 221, 221)",
                     paddingBottom: "19px",
@@ -125,11 +125,13 @@ const ProfileNavbar = ({
                   <span>جزيیات حساب</span>
                 </li>
               </Link>
-              <li className="logout-li-profile">
-                <i className="fa-solid fa-power-off"></i>
+              <Link href={"logout"}>
+                <li className="logout-li-profile">
+                  <i className="fa-solid fa-power-off"></i>
 
-                <span>خروج</span>
-              </li>
+                  <span>خروج</span>
+                </li>
+              </Link>
             </ol>
           </div>
           <OverlayComponent classname="active" open={open} setOpen={setOpen} />

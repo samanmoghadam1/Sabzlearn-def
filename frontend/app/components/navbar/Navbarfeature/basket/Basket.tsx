@@ -122,14 +122,18 @@
 // export default BasketNavbar;
 
 "use client";
-export const dynamic = 'force-dynamic'
+export const dynamic = "force-dynamic";
 
 import OverlayComponent from "@/app/components/overlay/overlayComponent";
-import { fetchCoursesByUserOrder } from "@/app/utils/fetchData";
+import {
+  fetchCoursesByUserOrder,
+  handleClickedDeleteCartItem,
+} from "@/app/utils/fetchData";
 import { useEffect, useState } from "react";
 import "./basket.css";
 import CartItemCourse from "@/app/components/courses/cartItemCourse/CartItemCourse";
 import Button from "@/app/components/elemets/Button";
+import Image from "next/image";
 
 export interface CartItemInterface {
   id: number;
@@ -184,8 +188,6 @@ const BasketNavbar = ({ btnStyle }: { btnStyle?: {} }) => {
     setTotalPrice(totalCoursePrice);
   }, [courses]);
 
-  
-
   return (
     <div className="position-relative ">
       <button
@@ -215,8 +217,8 @@ const BasketNavbar = ({ btnStyle }: { btnStyle?: {} }) => {
                   <div dir="ltr" className="basket-courses border-bottom ">
                     {courses.map((item: CartItemInterface, index) => {
                       return (
-                        <div key={index} className="mb-1">
-                          <CartItemCourse
+                        <div key={index} className="mb-1 row">
+                          {/* <CartItemCourse
                             id={item.course_data.id}
                             image={item.course_data.image}
                             price={item.course_data.price}
@@ -224,7 +226,55 @@ const BasketNavbar = ({ btnStyle }: { btnStyle?: {} }) => {
                             key={index}
                             courses={courses} 
                             setCourses = {setCourses}
-                          />
+                          /> */}
+
+                          <div className="col-2 d-flex align-items-center cart-in-basket-trash-icon">
+                            <i
+                              onClick={() =>
+                                handleClickedDeleteCartItem(
+                                  item.course_data.id,
+                                  courses,
+                                  setCourses
+                                )
+                              }
+                              className="cart-item-course-trash fa-solid fa-trash"
+                            ></i>
+                          </div>
+
+                          <div
+                            className="col-6 d-flex flex-column text-end "
+                            dir="rtl"
+                          >
+                            <p
+                              style={{
+                                color: "black",
+                                fontSize: "16px",
+                                lineHeight: "20px",
+                              }}
+                            >
+                              {item.course_data.name}
+                            </p>
+                            <span
+                              style={{
+                                color: "rgb(70 70 71)",
+                                fontSize: "13px",
+                                lineHeight: "20px",
+                              }}
+                            >
+                              {" "}
+                              {item.course_data.price} تومان
+                            </span>
+                          </div>
+
+                          <div className="col-4 d-flex align-items-center">
+                            <Image
+                              className="rounded-1"
+                              src={item.course_data.image}
+                              width={100}
+                              height={50}
+                              alt={`course image ${item.course_data.name}`}
+                            />
+                          </div>
                         </div>
                       );
                     })}

@@ -13,6 +13,8 @@
 
 .course-title {
   cursor: pointer;
+  font-weight: bold;
+  
 }
 
 .course-image {
@@ -21,10 +23,27 @@
   padding: 15px 15px 0px 15px !important;
 }
 
+.course-price { 
+  font-weight: bold;
+}
 .course-price-information {
   padding: 30px 15px 15px 15px !important;
 }
 
 .course-description {
   font-size: 14px;
+  color: #6f6f70; 
+
+  font-weight: lighter;
+}
+
+.course-teacher { 
+  color: #757576; 
+}
+.course-teacher span { 
+  font-size: 13px; 
+}
+
+.course-student-number { 
+  color: #808080 !important;
 }

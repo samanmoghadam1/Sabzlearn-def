@@ -30,13 +30,18 @@ def create_cart_item(request):
         user=user,
     )
     purchased_course =  user.purchased_courses.all()
+    purchased_course_with_course_model = [] 
+    
+    for p in purchased_course: 
+        purchased_course_with_course_model.append(p.course)
 
     if CartItem.objects.filter(order=order, course=course).exists():
         return Response({"error": "Course already exists in the cart"}, status=status.HTTP_409_CONFLICT)
 
-    if course in purchased_course: 
+    if course in purchased_course_with_course_model: 
         return Response({"error": "Course already exists in the purchased course"})
-
+    
+    
     cart_item = CartItem.objects.create(
         user=user,
         course=course,
@@ -108,9 +113,10 @@ def create_payment(request):
     #     return Response({'error': "somtings wrong (authentication wrong)"})
     
     
-
-    if user and order and price  and is_successful: 
-        payment = Payment.objects.create(
+    
+    if user and order and  is_successful: 
+        if price or price == 0: 
+            payment = Payment.objects.create(
             user=user, 
             order=order, 
             price=price, 
@@ -128,7 +134,7 @@ def create_payment(request):
         order.save() 
         return Response(serializer.data) 
     
-    return Response({'error': "somtings wrong (field required)"})
+    return Response({'error': "somtings wrong (field required)"}, status=status.HTTP_400_BAD_REQUEST)
 
 
 

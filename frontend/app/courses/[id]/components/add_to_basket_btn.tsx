@@ -23,7 +23,7 @@ const AddToBasketButton = ({ id }: { id: number }) => {
     if (response) {
       Cookies.set(`course_basket${id}`, "true");
       setInBasket(true);
-      window.location.href = `/courses/${id}`;
+      window.location.href = `/cart`;
     }
   }
 

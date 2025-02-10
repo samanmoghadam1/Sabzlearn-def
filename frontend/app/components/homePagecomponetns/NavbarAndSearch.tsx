@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import HamburgerButton from "../navbar/Hamburger-button/HamburgerButton";
 import BasketNavbar from "../navbar/Navbarfeature/basket/Basket";
@@ -5,16 +7,41 @@ import BasketNavbar from "../navbar/Navbarfeature/basket/Basket";
 import "./NavbarAndSearch.css";
 import ProfileNavbar from "../navbar/Navbarfeature/profile/Profile";
 import Link from "next/link";
-import { fetchUserDataFromServer } from "@/app/utils/fetchDataServer";
+import { fetchUserData } from "@/app/utils/fetchData";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 // responsive sisez:  644px,  770, 1027px, 1289
-const NavbarAndSearch = async () => {
-  const user = await fetchUserDataFromServer(); 
+const NavbarAndSearch = () => {
+  const [inputValue, setInputValue] = useState<string>("");
+  const [user, setUser] = useState({});
+
+  const router = useRouter(); 
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const data = await fetchUserData();
+      setUser(data);
+    };
+    fetchUser();
+  }, []);
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    router.push(`/courses/search/${inputValue}`)
+  }
+
+
+  function handleChangeInput(e: React.ChangeEvent<HTMLInputElement>) {
+    setInputValue(e.currentTarget.value);
+  }
+
+  
   return (
     <div className="bg-secondary pb-4 pt-2 px-4 navbar-and-search-container">
       <div className="navbar-and-search-layout-container">
         <div className="d-flex justify-content-between align-items-center">
           <HamburgerButton
-          textsStyle={{color:'white'}}
+            textsStyle={{ color: "white" }}
             className="d-md-none"
             barBtnStyle={{
               backgroundColor: "transparent",
@@ -59,27 +86,33 @@ const NavbarAndSearch = async () => {
           <div className="d-flex align-items-center gap-2">
             <BasketNavbar btnStyle={{ backgroundColor: "transparent" }} />
             <div className="d-none signup-or-profile-home-page">
-            {
-              !user? <Link href={`/login`}
-              className="
+              {!user ? (
+                <Link
+                  href={`/login`}
+                  className="
                 sign-up-in-home-btn
                 border-0
                 d-flex gap-2 justify-content-center
                 align-items-center
                 rounded-2 d-none
             "
-              style={{
-                fontSize: "15px",
-                backgroundColor: "var(--sabzlearn-color)",
-                color: "white",
-                width: "150px",
-                height: "45px",
-              }}
-            >
-              <i className="fa-regular fa-user icon"></i>
-              <span>ورود|عضویت</span>
-            </Link>: <ProfileNavbar iconColor={{color: 'white'}} containerStyle={{backgroundColor: "transparent"}} /> 
-            }
+                  style={{
+                    fontSize: "15px",
+                    backgroundColor: "var(--sabzlearn-color)",
+                    color: "white",
+                    width: "150px",
+                    height: "45px",
+                  }}
+                >
+                  <i className="fa-regular fa-user icon"></i>
+                  <span>ورود|عضویت</span>
+                </Link>
+              ) : (
+                <ProfileNavbar
+                  iconColor={{ color: "white" }}
+                  containerStyle={{ backgroundColor: "transparent" }}
+                />
+              )}
             </div>
           </div>
         </div>
@@ -92,8 +125,13 @@ const NavbarAndSearch = async () => {
           </p>
         </div>
 
-        <form className="mt-4 d-flex justify-content-center p-2 search-form-input-home-page">
+        <form
+          className="mt-4 d-flex justify-content-center p-2 search-form-input-home-page"
+          onSubmit={handleSubmit}
+        >
           <input
+            onChange={handleChangeInput}
+            value={inputValue}
             style={{
               width: "400px",
               height: "70px",

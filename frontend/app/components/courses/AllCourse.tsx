@@ -3,7 +3,7 @@ import { CourseItemInterface } from "@/app/courses/page";
 
 const AllCourses = ({ arr }: { arr: any }) => {
   return (
-    <div className="row d-flex justify-content-center my-5">
+    <div style={{maxWidth: "1300px", margin: 'auto'}} className="row d-flex   my-5 ">
       {arr.map((item: CourseItemInterface, index: number) => {
         return (
           <Course

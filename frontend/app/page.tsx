@@ -7,6 +7,7 @@ import Link from "next/link";
 import ArrowLeftIcon from "./components/icons/arrowLeftIcon";
 import NavbarAndSearch from "./components/homePagecomponetns/NavbarAndSearch";
 import AllCourses from "@/app/components/courses/AllCourse";
+import AlertComponent from "./components/alert/alert";
 interface CourseItemInterface {
   category: number;
   created_at: string;

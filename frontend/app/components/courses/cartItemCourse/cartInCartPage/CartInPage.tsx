@@ -1,3 +1,5 @@
+'use client';
+
 import { handleClickedDeleteCartItem } from "@/app/utils/fetchData";
 import "./CartInPage.css";
 
@@ -37,7 +39,7 @@ const CartInPage = ({
   console.log(image);
   return (
     <div className="row m-1 justify-content-between cart-item-component-container">
-      <div className="col-12 col-sm-4 course-image-contaoner-in-cart-page-component">
+      <div className="col-12 col-sm-4 course-image-contaoner-in-cart-page-component  d-flex justify-content-center">
         <div className="position-relative course-image-in-container">
           <Image
             src={image}
@@ -48,15 +50,15 @@ const CartInPage = ({
           ></Image>
           <div
             style={{ width: "15px", height: "15px", fontSize: "10px" }}
-            className="bg-white position-absolute top-0 m-2 rounded-circle d-flex align-items-center text-center justify-content-center d-sm-none"
+            className="bg-white position-absolute top-0  m-2 rounded-circle d-flex align-items-center text-center justify-content-center d-sm-none x-mark-in-cart-item-course-container"
           >
-            <i className="fas fa-xmark "></i>
+            <i onClick={()=>{handleClickedDeleteCartItem(id, courses, setCourses)}} className="fas fa-xmark "></i>
           </div>
         </div>
       </div>
 
       <div className="col-12 col-sm-5 d-flex flex-column gap-2 coursein-cart-page-component me-3 justify-content-center">
-        <h6 className="mt-3">{title}</h6>
+        <h6 className="mt-3 text-center text-sm-end">{title}</h6>
         <span className="opacity-75 d-none d-sm-block">{teacher}</span>
       </div>
 
@@ -65,7 +67,7 @@ const CartInPage = ({
         <h6 style={{color: "var(--sabzlearn-color)"}}>تومان {toPersianNumber(price)}</h6>
       </div>
       <div className="col-0 d-none d-sm-flex col-sm-1 align-items-center text-center justify-content-center opacity-25 trash-container-in-cartItem-page-component">
-        <i className="fas fa-trash-alt"></i>
+        <i onClick={()=> handleClickedDeleteCartItem(id, courses, setCourses)} className="fas fa-trash-alt"></i>
       </div>
     </div>
   );

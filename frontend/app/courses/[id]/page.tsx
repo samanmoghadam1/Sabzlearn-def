@@ -8,9 +8,6 @@ import {
 } from "@/app/utils/fetchData";
 import Image from "next/image";
 import Link from "next/link";
-import Comment, {
-  commentInterFace,
-} from "@/app/components/commentComponent/Comment";
 import AddToBasketButton from "./components/add_to_basket_btn";
 import { fetchUserDataFromServer } from "@/app/utils/fetchDataServer";
 import customServerFetch from "@/app/utils/custom_fetch_server";
@@ -50,6 +47,16 @@ const CourseDetail = async ({
   const headlines = await fetchHeadLinesByCourse(id);
   const reviews = await fetchReviewsByCourse(id);
   const user = await fetchUserDataFromServer();
+  const purchasedCourses:[{course: number}] = await customServerFetch('http://127.0.0.1:8000/orders/purchased_courses/list/', 'GET', undefined); 
+  
+  let purchased = false;  
+  
+
+  purchasedCourses.forEach((v)=> {
+    if (v.course == id) { 
+      purchased = true; 
+    }
+  })
 
   // http://127.0.0.1:8000/reviews/create/${id}
 
@@ -92,7 +99,11 @@ const CourseDetail = async ({
             {" "}
             {data.price} <span className="h5">تومان</span>
           </span>
-          <AddToBasketButton id={id} />
+          {
+            !purchased ? <AddToBasketButton id={id} /> : <div className="text-center mt-4 text-warning">
+              <h5>این دوره رو شما قبلا خریداری کردید</h5>
+            </div>
+          }
         </div>
       </div>
 
@@ -200,8 +211,6 @@ const CourseDetail = async ({
         {/*  */}
         <Image
           src={
-            // data.user_data.image ||
-            // "http://localhost:3000/static-images/default-avatar.png"
             data.user_data.image
               ? `http://127.0.0.1:8000/${data.user_data.image}`
               : "http://localhost:3000/static-images/default-avatar.png"

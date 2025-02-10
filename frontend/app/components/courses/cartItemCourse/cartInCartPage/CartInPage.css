@@ -11,3 +11,17 @@
 .x-container-for-cart:hover {
     background-color: red !important;
 }
+
+.trash-container-in-cartItem-page-component i:hover{ 
+  color: red; 
+  cursor: pointer;
+}
+
+.x-mark-in-cart-item-course-container { 
+  transition: all 0.1s ease-in-out;
+}
+.x-mark-in-cart-item-course-container:hover { 
+  background-color: red !important;
+  cursor: pointer;
+  color: white !important; 
+}

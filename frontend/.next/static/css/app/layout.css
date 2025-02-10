@@ -217,56 +217,14 @@
     margin: 0;
     padding: 0;
 }
-/*!******************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./app/components/courses/cartItemCourse/cartItemCourse.css ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************************/
-/* cartItemCourse.css */
 
-.coursein-cart-page-component {
-  font-size: 13px;
+
+.cart-in-basket-trash-icon i {
+  transition: all 0.1s ease-in-out;
 }
-
-.trash-container-in-cartItem-page-component :hover{
+.cart-in-basket-trash-icon i:hover { 
+  color: rgb(255, 93, 93);
   cursor: pointer;
-  color: red;
-  opacity: 1 !important;
-}
-
-@media screen and (max-width: 790px) {
-  .coursein-cart-page-component h6{
-    font-size: 14px !important;
-    justify-content: start !important;
-    margin-right: 12px !important;
-  }
-}
-
-@media screen and (max-width: 576px) {
-  .course-image-contaoner-in-cart-page-component  {
-    margin: auto !important;
-    align-items: center !important; 
-  }
-  .course-image-in-container {
-    width: 60%;
-    padding: 0px !important;
-    margin: auto !important;
-  }
-  .course-image-contaoner-in-cart-page-component img{
-    width: 100% !important;
-    height: auto ;
-  }
-  .cart-item-component-container {
-    margin: auto !important; 
-    text-align: center !important; 
-  }
-  .coursein-cart-page-component h6{ 
-    margin-top : 8px !important ;
-    margin-bottom : 18px !important ;
-    text-align: start !important;
-  }
-  .description-cart-item-component {
-    max-width: 75% !important;
-    margin: auto !important;
-  }
 }
 /*!*******************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./app/components/elemets/button.css ***!
@@ -355,6 +313,109 @@
 .footer-category ol li:hover{
     cursor: pointer;
 }
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./app/components/chatComponent/OnlineChat/onlineChat.css ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************/
+
+.online-chat-container{
+    background-color: rgb(255, 255, 255);
+    
+    width: 330px; 
+    position: absolute;
+    bottom: 100%;
+    left: 25px; 
+    border-radius: 5px;
+}
+
+.online-chat-component-top {
+    background-image: url('/static-images/texture-1.png');
+    background-repeat: no-repeat; 
+    background-position: center; 
+    background-size: cover;
+}
+
+.online-chat-component-header { 
+    background-color: rgba(2, 139, 229, 0.8);
+    border-radius: 5px 5px 0px 0px;
+    padding: 18px;
+}
+.online-chat-component-header p { 
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 13px;
+    text-align: justify; 
+    text-align: center; 
+
+}
+.online-chat-component-header div img { 
+    width: 45px;
+    height: 45px; 
+    border-radius: 50%;
+}
+
+.online-chat-component-main {
+    height: 270px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.online-chat-component-input {
+    border-top: 1px solid #dee5ec;
+}
+.online-chat-component-input button{
+    flex: 1 1; 
+    border: 0px; 
+    background-color: transparent;
+    padding: 15px; 
+}
+.online-chat-component-input input{
+    flex: 7 1;
+    border: 0px; 
+    outline: none;
+    padding: 15px;
+    font-size: 12px;
+    color: #585a5c;
+}
+.x-mark-in-responsive-online-chat { 
+    display: none;
+}
+
+
+@media screen and (max-width: 400px) {
+    .online-chat-container { 
+        width: 100vw !important; 
+        height: 100vh !important; 
+        position: fixed !important;
+        z-index: 100000 !important;
+        top: 0; 
+        left: 0; 
+    }
+    .online-chat-component-main { 
+        height: 60vh;
+    }
+    .online-chat-component-header { 
+        height: 30vh; 
+        display: flex;
+        flex-direction: column;
+        align-items: center !important;
+    }
+    .online-chat-component-input { 
+        height: 10vh !important;
+    } 
+    .x-mark-in-responsive-online-chat { 
+        left: 10px; 
+        width: 25px; 
+        height: 25px;
+        padding: 5px;
+        border-radius: 50%;
+        display: flex !important;
+        justify-content: center;
+        text-align: center !important; 
+        cursor: pointer;
+        background-color: #585a5c;
+    }
+
+}
+
 /*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[3].use[1]!./node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[13].oneOf[3].use[2]!./node_modules/next/font/local/target.css?{"path":"app\\layout.tsx","import":"","arguments":[{"src":"../public/fonts/Vazirmatn-Regular.ttf"}],"variableName":"iranFont"} ***!
   \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/

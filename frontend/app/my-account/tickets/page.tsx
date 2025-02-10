@@ -5,7 +5,6 @@ import { toPersianNumber } from "@/app/utils/functions";
 
 const TicketPage = () => {
   return (
-    // d-sm-none d-md-block col-md-4 col-lg-3 col-xl-2
     <div className="row">
       <UserPanel />
       <div className="col-12 col-md-8 col-lg-9 col-xl-10 ">

@@ -1,0 +1,36 @@
+.alert-container-in-component { 
+    position: fixed;
+    width: 300px;
+    height: 100px;
+    background-color: 	#D2042D;
+    color: white;
+    border-radius: 7px;
+    z-index: 10000;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    transition: all 0.6s ease-in-out;
+}
+
+.alert-container-in-component.active { 
+    top: 20px; 
+    left: 20px;
+}
+.alert-container-in-component.deactive { 
+    top: 20px; 
+    left: -20000px;
+}
+
+.alert-container-in-component.danger {
+    background-color:#D2042D !important;
+    color: white !important;
+}
+
+.alert-container-in-component.warning {
+    background-color:#FFFF8F !important;
+    color: black !important;
+}
+.alert-container-in-component.success {
+    background-color:#4BB543 !important;
+    color: white !important;
+}
