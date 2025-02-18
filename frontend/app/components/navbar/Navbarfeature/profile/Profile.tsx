@@ -125,7 +125,7 @@ const ProfileNavbar = ({
                   <span>جزيیات حساب</span>
                 </li>
               </Link>
-              <Link href={"logout"}>
+              <Link href={"/logout"}>
                 <li className="logout-li-profile">
                   <i className="fa-solid fa-power-off"></i>
 

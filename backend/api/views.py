@@ -11,6 +11,8 @@ from datetime import datetime, timedelta
 # اصلاح به این صورت
 expires = datetime.utcnow() + timedelta(days=1)
 
+from rest_framework.response import Response
+
 
 @api_view(['POST'])
 @permission_classes([AllowAny])
@@ -53,38 +55,8 @@ def user_info(request):
     return Response({"error": "User is not authenticated"}, status=401)
 
 
-# class LoginView(APIView): 
-#     permission_classes = []
-#     def post(self, request):
-#         email = request.data.get('email') 
-#         password = request.data.get('password') 
-
-#         user = authenticate(request, email=email, password=password)
-
-#         if user is not None: 
-#             refresh = RefreshToken.for_user(user) 
-#             response = Response({'message': "Login successful"}) 
-#             accessToken = response.set_cookie(
-#                 key='accessToken',
-#                 value=str(refresh.access_token),
-#                 httponly=True,
-#             )
-#             refreshToken = response.set_cookie(
-#                 key='refreshToken', 
-#                 value=str(refresh), 
-#                 httponly=True, 
-#             )
-#             return response
-#         return Response({'detail': "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
 
 
-
-from rest_framework.response import Response
-from rest_framework.permissions import AllowAny
-from rest_framework_simplejwt.tokens import RefreshToken
-from django.contrib.auth import authenticate
-from rest_framework import status
-from rest_framework.views import APIView
 
 class LoginView(APIView):
     permission_classes = []

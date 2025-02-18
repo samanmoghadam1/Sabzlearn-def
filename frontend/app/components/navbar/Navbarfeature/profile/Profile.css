@@ -18,8 +18,13 @@
     cursor: pointer;
     transition: all 0.2s ease;
 }
+
+/* background-color: rgba(83, 224, 88, .6);  */
+
 .Basket-open ol li:hover{
-    background-color: rgba(83, 224, 88, .6); 
+background-color: rgba(83, 224, 88, .8); 
+    /* background-color: rgba(54, 150, 58, 0.8);  */
+    color: white;
 }
 .Basket-open ol .logout-li-profile:hover{
     background-color: rgba(211, 46, 46, 1);

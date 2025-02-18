@@ -24,17 +24,35 @@
       "static/css/app/courses/[id]/page.css",
       "static/chunks/app/courses/[id]/page.js"
     ],
-    "/cart/page": [
+    "/my-account/courses/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/cart/page.css",
-      "static/chunks/app/cart/page.js"
+      "static/css/app/my-account/courses/page.css",
+      "static/chunks/app/my-account/courses/page.js"
     ],
-    "/courses/page": [
+    "/my-account/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/courses/page.css",
-      "static/chunks/app/courses/page.js"
+      "static/css/app/my-account/page.css",
+      "static/chunks/app/my-account/page.js"
+    ],
+    "/my-account/orders/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/my-account/orders/page.css",
+      "static/chunks/app/my-account/orders/page.js"
+    ],
+    "/my-account/qaa/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/my-account/qaa/page.css",
+      "static/chunks/app/my-account/qaa/page.js"
+    ],
+    "/my-account/edit-account/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/my-account/edit-account/page.css",
+      "static/chunks/app/my-account/edit-account/page.js"
     ],
     "/_not-found/page": [
       "static/chunks/webpack.js",

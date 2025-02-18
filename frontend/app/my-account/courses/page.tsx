@@ -6,6 +6,7 @@ import { short_text, toPersianNumber } from "@/app/utils/functions";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import ClientUserPanel from "@/app/components/my-account/clientPanel";
+import Slider from "@/app/components/swipper/swipperComponent";
 
 // http://127.0.0.1:8000/orders/purchased_courses/list/
 
@@ -14,7 +15,6 @@ interface courseInterface {
 }
 const accoutCourses = () => {
   const [courses, setCourses] = useState<courseInterface[]>([]);
-// col-md-4 col-lg-3 col-xl-2
   useEffect(() => {
     async function fetchData() {
       const response: [] = await customFetch(
@@ -42,7 +42,7 @@ const accoutCourses = () => {
             return (
               <div
                 key={index}
-                className="col-5 p-0 mx-2 my-3 bg-white rounded-2 "
+                className="col-10 col-sm-5 col-lg-3 p-0 mx-2 my-3 bg-white rounded-2"
               >
                 <div
                   className="position-relative"

@@ -16,7 +16,6 @@ export async function fetchNavbarCategories() {
       }
     );
   } catch (error) {
-    console.error("Error fetching navbar categories:", error);
     throw new Error("An error occurred while fetching categories");
   }
 }
@@ -137,7 +136,6 @@ export const fetchCoursesByUserOrder = async () => {
     }
     throw new Error("Failed to fetch user data");
   } catch (error) {
-    console.error("Error fetchin user data: ", error);
     throw error;
   }
 };

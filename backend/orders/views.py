@@ -19,12 +19,12 @@ def create_cart_item(request):
     course_id = request.data.get('course_id')
 
     if not course_id:
-        return Response({"error": "Course ID is required"}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({"error": "آیدی دوره بایدی است"}, status=status.HTTP_400_BAD_REQUEST)
 
     try:
         course = Course.objects.get(id=course_id)  
     except Course.DoesNotExist:
-        return Response({"error": "Course not found"}, status=status.HTTP_404_NOT_FOUND)
+        return Response({"error": "دوره پیدا نشد"}, status=status.HTTP_404_NOT_FOUND)
 
     order, created = Order.objects.get_or_create(
         user=user,
@@ -36,10 +36,10 @@ def create_cart_item(request):
         purchased_course_with_course_model.append(p.course)
 
     if CartItem.objects.filter(order=order, course=course).exists():
-        return Response({"error": "Course already exists in the cart"}, status=status.HTTP_409_CONFLICT)
+        return Response({"error": "این دوره در سبد خرید شما موجود است"}, status=status.HTTP_409_CONFLICT)
 
     if course in purchased_course_with_course_model: 
-        return Response({"error": "Course already exists in the purchased course"})
+        return Response({"error": "شما این دوره رو قبلا خریداری کردید"}, status=status.HTTP_400_BAD_REQUEST)
     
     
     cart_item = CartItem.objects.create(
@@ -63,9 +63,9 @@ def delete_cart_item(request, pk):
         order = Order.objects.filter(user=user).first() 
         cart_item = order.cart_items.filter(course_id=pk)
         cart_item.delete() 
-        return Response({'message': 'success'})
+        return Response({'message': 'داده با موفقیت پاک شد'})
     except :
-        return Response({'error': "cant delete"}, status=status.HTTP_400_BAD_REQUEST) 
+        return Response({'error': "داده با موفقیت پاک نشد"}, status=status.HTTP_400_BAD_REQUEST) 
     
     
 
@@ -82,9 +82,7 @@ class DeleteCartItem(generics.DestroyAPIView):
 def list_cart_item(request):
     user = request.user
     cart_items = user.cart_items.all()  
-
     serializer = CartItemSerializer(cart_items, many=True, context={'request': request})
-
     return Response(serializer.data)
 
 
@@ -102,19 +100,14 @@ def list_purchased_courses(request):
 @permission_classes([IsAuthenticated])
 @api_view(['post'])
 def create_payment(request): 
-    # 'id', 'user', 'order', 'price', 'payment_date', 'is_successful'
     user = request.user 
     order_id = int(request.data.get('order'))
     price = float(request.data.get('price'))
     is_successful = bool(request.data.get('is_successful'))
 
     order = Order.objects.filter(id=order_id).first() 
-    # if user is not order.user: 
-    #     return Response({'error': "somtings wrong (authentication wrong)"})
     
-    
-    
-    if user and order and  is_successful: 
+    if user and order and is_successful: 
         if price or price == 0: 
             payment = Payment.objects.create(
             user=user, 
@@ -134,7 +127,7 @@ def create_payment(request):
         order.save() 
         return Response(serializer.data) 
     
-    return Response({'error': "somtings wrong (field required)"}, status=status.HTTP_400_BAD_REQUEST)
+    return Response({'error': "خطای ارسال نشدن کامل داده ها به سرور"}, status=status.HTTP_400_BAD_REQUEST)
 
 
 

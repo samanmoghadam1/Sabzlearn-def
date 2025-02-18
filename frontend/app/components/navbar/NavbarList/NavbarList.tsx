@@ -5,6 +5,7 @@ import "./NavbarList.css";
 import { fetchNavbarCategories } from "@/app/utils/fetchData";
 import Category from "./Category";
 import { useRouter } from "next/navigation";
+import AlertComponent from "../../alert/alert";
 
 interface NavbarProps {
   navbarListState: boolean;
@@ -17,7 +18,7 @@ const NavbarList = ({ navbarListState, setNavbarListState }: NavbarProps) => {
   >([]);
 
   const [inputValue, setInputValue] = useState<string>("");
-
+  const [alert, setAlert] = useState({success: "", error: ""}); 
   const router = useRouter();
 
   function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -36,15 +37,25 @@ const NavbarList = ({ navbarListState, setNavbarListState }: NavbarProps) => {
         const data: any = await fetchNavbarCategories();
         setCategories(data);
       } catch (error) {
-        console.error("Error fetching categories:", error);
+        setAlert({error: "خطا در اتصال با سرور", success: ""})
       }
     };
 
     getCategories();
   }, []);
 
+  function returnAlertComponent() {
+    if (alert.error !== "") {
+      return <AlertComponent text={alert.error} backc="danger" />;
+    } else if (alert.success !== "") {
+      return <AlertComponent text={alert.success} backc="success" />;
+    } else {
+    }
+  }
+
   return (
     <>
+    {returnAlertComponent()}
       <div
         className={
           navbarListState

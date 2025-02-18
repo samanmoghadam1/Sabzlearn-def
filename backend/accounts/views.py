@@ -23,9 +23,13 @@ def UpdateUserView(request):
     user = request.user
     data = request.data
     
+    if not data.get('email') or not data.get('phone_number') or not data.get('name'): 
+        return Response({'error': 'داده ها به صورت کامل فرستاده نشده است'}, status=status.HTTP_400_BAD_REQUEST) 
     user.email = data['email']
     user.phone_number = data['phone_number'] 
     user.name = data['name'] 
+    
+    
     if not data.get('avatar') or data.get('avatar') == "":
         pass 
     else: 

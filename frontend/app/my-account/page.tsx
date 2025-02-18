@@ -1,8 +1,3 @@
-// import { Swiper, SwiperSlide } from "swiper/react";
-// import "swiper/css";
-// import "swiper/css/navigation";
-// import "swiper/css/pagination";
-
 import Course from "../components/courses/Courses";
 import OpenBookIcon from "../components/icons/openBookIcon";
 import QandAIcon from "../components/icons/QandAIcon";
@@ -10,7 +5,17 @@ import TicketIcon from "../components/icons/ticketsIcon";
 import WalletIcon from "../components/icons/walletIcon";
 import ProfileTitleComponent from "../components/profileTitle/ProfileTitleComponent";
 import UserPanel from "../components/my-account/panel";
-const MyAccountPage = () => {
+import customServerFetch from "../utils/custom_fetch_server";
+import Slider from "../components/swipper/swipperComponent";
+import { CourseItemInterface } from "../courses/page";
+
+const MyAccountPage = async () => {
+  const courses: any = await customServerFetch(
+    "http://127.0.0.1:8000/orders/purchased_courses/list/",
+    "GET",
+    undefined
+  );
+  console.log(courses); 
   return (
     <div className="row m-3">
       <UserPanel />
@@ -57,27 +62,31 @@ const MyAccountPage = () => {
           </div>
         </div>
 
-        <ProfileTitleComponent link="courses/" title="در حال یادگیری" />
-
-        {/* <Swiper spaceBetween={10} slidesPerView={1}>
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-      </Swiper> */}
-
-        <Course
-          description="عالی"
-          id={1}
-          image="https://sabzlearn.ir/wp-content/uploads/2023/11/Course-thumbnail-Algorithm-1-768x432.webp"
-          offer={10}
-          point={3.2}
-          price={100000}
-          studentsNumber={56}
-          teacher=" سامان مقدم"
-          title="الگریتم به زبان ساده"
-          user_id={2}
-          key={1}
+        <ProfileTitleComponent
+          link="/my-account/courses"
+          title="در حال یادگیری"
         />
+
+        <div className="row">
+        {courses.map((item: any, index:number) => {
+          return (
+            <Course
+              description={item.courses.description}
+              id={1}
+              image={`http://127.0.0.1:8000/${item.courses.image}`}
+              offer={10}
+              point={3.2}
+              price={item.courses.price}
+              studentsNumber={item.courses.number_of_sessions}
+              teacher={item.courses.teacher.name}
+              title={item.courses.name}
+              user_id={2}
+              key={index}
+            />
+          );
+        })}
+        </div>
+
         <ProfileTitleComponent link="courses/" title="پرسش های اخیر" />
         <span className="text-center d-block">
           هیچ پرسشی برای شما وجود ندارد
@@ -86,6 +95,8 @@ const MyAccountPage = () => {
         <span className="text-center d-block">
           هیج تیکتی برای شما وجود ندارد
         </span>
+
+        
       </div>
     </div>
   );

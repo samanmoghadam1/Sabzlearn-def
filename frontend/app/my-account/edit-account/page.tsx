@@ -23,7 +23,6 @@ const EditAccountPage = () => {
     new_password: string;
   }
 
-  // حالت‌های محلی
   const [user, setUser] = useState<any>({});
   const [userInfo, setUserInfo] = useState<userInfoInterFace>({
     name: "",
@@ -36,6 +35,10 @@ const EditAccountPage = () => {
     old_password: "",
     new_password: "",
   });
+
+  const [editAccountButtonLoading, setEditAccountButtonLoading] =
+    useState(false);
+  const [editPasswordLoading, setEditPasswordLoading] = useState(false);
 
   type Errors = {
     [key in keyof userInfoInterFace]?: string;
@@ -73,7 +76,6 @@ const EditAccountPage = () => {
   });
 
   const handlePasswordSubmit = async () => {
-    
     try {
       await validationPasswordSchema.validate(passwordInfo, {
         abortEarly: false,
@@ -91,16 +93,16 @@ const EditAccountPage = () => {
         setPasswordErrors(formattedErrors);
         console.log("Password Errors found", formattedErrors);
         return;
-      }else { 
+      } else {
         console.log("API Error: ", error);
-        return; 
+        return;
       }
-    }finally {
-      console.log('password error is: ', passwordErrors);
-
+    } finally {
+      console.log("password error is: ", passwordErrors);
     }
 
     try {
+      setEditPasswordLoading(true);
       const response: any = await customFetch(
         "http://127.0.0.1:8000/profile/update-password/",
         "PUT",
@@ -113,6 +115,8 @@ const EditAccountPage = () => {
       window.location.href = "/my-account/edit-account";
     } catch (error) {
       console.log(error);
+    } finally {
+      setEditPasswordLoading(false);
     }
   };
 
@@ -152,6 +156,7 @@ const EditAccountPage = () => {
     }
 
     try {
+      setEditAccountButtonLoading(true); 
       const response = await fetch("http://127.0.0.1:8000/profile/update/", {
         method: "PUT",
         body: formData,
@@ -169,6 +174,9 @@ const EditAccountPage = () => {
       window.location.href = "/my-account/edit-account";
     } catch (error) {
       console.error("Error updating profile:", error);
+    }
+    finally {
+      setEditAccountButtonLoading(false);
     }
   };
 
@@ -307,8 +315,8 @@ const EditAccountPage = () => {
                 onclick={handleSubmitEdit}
                 style={{ fontSize: "14px" }}
                 className="p-3 w-50 the-submit-edit-page me-auto"
-                disable={false}
-                title="ویرایش حساب کاربری"
+                disable={editAccountButtonLoading}
+                title={`${editAccountButtonLoading ? 'در حال بررسی': 'ویرایش حساب کاربری'}`}
               />
             </div>
           </div>
@@ -329,9 +337,9 @@ const EditAccountPage = () => {
               />
               <i className="fa-solid fa-lock bg-white p-4 py-4 rounded-start"></i>
             </div>
-            {
-              passwordErrors.old_password && <span className="text-danger">{passwordErrors.old_password}</span>
-            }
+            {passwordErrors.old_password && (
+              <span className="text-danger">{passwordErrors.old_password}</span>
+            )}
           </div>
 
           {/* بخش تغییر رمز عبور جدید */}
@@ -350,19 +358,20 @@ const EditAccountPage = () => {
               />
               <i className="fa-solid fa-lock bg-white p-4 py-4 rounded-start"></i>
             </div>
-            {
-              passwordErrors.new_password && <span className="text-danger">{passwordErrors.new_password}</span>
-            }
+            {passwordErrors.new_password && (
+              <span className="text-danger">{passwordErrors.new_password}</span>
+            )}
           </div>
 
           {/* دکمه تغییر رمز عبور */}
           <div className="col-lg-6 mx-3 me-auto my-5 text-start">
             <div className="">
               <button
+                disabled={editPasswordLoading}
                 onClick={handlePasswordSubmit}
                 className="edit-account-custom-button p-3 rounded-1 w-50 bg-transparent text-center"
               >
-                تغییر رمز عبور
+                {editPasswordLoading ? "در حال بررسی" : "تغییر رمز عبور"}
               </button>
             </div>
           </div>

@@ -92,7 +92,6 @@ def list_courses_by_teacher(request, pk):
 
 @api_view(['GET']) 
 def search_courses(request, params): 
-    print('search thing is: ', params)
     courses = Course.objects.filter(name__icontains=params) 
     serializer = CourseSerializer(courses, many=True, context={'request': request}) 
     return Response(serializer.data) 

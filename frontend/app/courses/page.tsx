@@ -44,6 +44,8 @@ const CoursesPage = () => {
     async function fetchData() {
       const response: any = await fetchCourses();
       if (response) {
+        console.log(response);
+        
         setCourses(response);
         setOriginalCourses(response);
       }
@@ -61,6 +63,7 @@ const CoursesPage = () => {
 
         <form
           onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
+            e.preventDefault(); 
             redirect(`/courses/search/${search}`);
           }}
           className="mt-5 search-course-courses-form w-100"

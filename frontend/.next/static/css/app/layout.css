@@ -80,6 +80,45 @@
 
 
 
+/*!****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./app/components/alert/alert.css ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************/
+.alert-container-in-component { 
+    position: fixed;
+    width: 300px;
+    height: 100px;
+    background-color: 	#D2042D;
+    color: white;
+    border-radius: 7px;
+    z-index: 10000;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    transition: all 0.6s ease-in-out;
+}
+
+.alert-container-in-component.active { 
+    top: 20px; 
+    left: 20px;
+}
+.alert-container-in-component.deactive { 
+    top: 20px; 
+    left: -20000px;
+}
+
+.alert-container-in-component.danger {
+    background-color:#D2042D !important;
+    color: white !important;
+}
+
+.alert-container-in-component.warning {
+    background-color:#FFFF8F !important;
+    color: black !important;
+}
+.alert-container-in-component.success {
+    background-color:#4BB543 !important;
+    color: white !important;
+}
 /*!********************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./app/components/navbar/Hamburger-button/HamburgerButton.css ***!
   \********************************************************************************************************************************************************************************************************************************************************************************************************/
@@ -262,8 +301,13 @@
     cursor: pointer;
     transition: all 0.2s ease;
 }
+
+/* background-color: rgba(83, 224, 88, .6);  */
+
 .Basket-open ol li:hover{
-    background-color: rgba(83, 224, 88, .6); 
+background-color: rgba(83, 224, 88, .8); 
+    /* background-color: rgba(54, 150, 58, 0.8);  */
+    color: white;
 }
 .Basket-open ol .logout-li-profile:hover{
     background-color: rgba(211, 46, 46, 1);

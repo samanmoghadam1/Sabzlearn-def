@@ -22,6 +22,10 @@ class PurchasedCoursesSerializer(serializers.ModelSerializer):
         return {
             'id': obj.course.id, 
             'name': obj.course.name, 
+            'description': obj.course.description,
+            'avatar': obj.course.image.url,
+            'price': obj.course.price, 
+            'number_of_sessions': obj.course.number_of_sessions ,
             'teacher': {
                 'name': obj.course.teacher.name, 
                 'id': obj.course.teacher.id, 
